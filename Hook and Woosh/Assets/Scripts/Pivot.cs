@@ -6,7 +6,7 @@ using System;
 
 
 public class Pivot : MonoBehaviour {
-
+	public float GravityFactor;
 	// Use this for initialization
 	void Start () {
 	//	GetComponent<Animator> ().SetInteger("1",1);
@@ -14,7 +14,7 @@ public class Pivot : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		GetComponent<Animator> ().SetInteger("PivotMagenta_1",0);
+		//GetComponent<Animator> ().SetInteger("PivotMagenta_1",0);
 		//http://answers.unity3d.com/questions/577314/how-to-detect-if-a-sprite-was-object-was-touched-i.html
 			foreach (Touch touch in Input.touches) {
 				if (touch.phase == TouchPhase.Stationary || touch.phase == TouchPhase.Moved ) {
@@ -24,7 +24,7 @@ public class Pivot : MonoBehaviour {
 					if (GetComponent<Collider2D> () == Physics2D.OverlapPoint (touchPos)) {
 				
 						//////////////////
-						ApplyGravityForceToBall ("Ball");
+						//ApplyGravityForceToBall ("Ball");
 						
 						
 					} else {
@@ -36,18 +36,18 @@ public class Pivot : MonoBehaviour {
 
 		}
 		// For MOUSE
-		RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-
-		if(hit.collider == GetComponent<Collider2D>())
-		{
-			
-			Debug.Log ("Target Position: " + hit.collider.gameObject.transform.position);
-			ApplyGravityForceToBall ("Ball");
-
-
-		} else {
-			
-		}
+//		RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+//
+//		if(hit.collider == GetComponent<Collider2D>())
+//		{
+//			
+//			Debug.Log ("Target Position: " + hit.collider.gameObject.transform.position);
+//			//ApplyGravityForceToBall ("Ball");
+//
+//
+//		} else {
+//			
+//		}
 	
 	}
 
@@ -72,8 +72,8 @@ public class Pivot : MonoBehaviour {
 			Radius = Math.Pow (Radius, 3f);
 
 			if (Radius > ballTag.GetComponent<SpriteRenderer> ().bounds.size.x) {
-				tempGravityX += 50.0f * ballTag.GetComponent<SpriteRenderer> ().bounds.size.x * GetComponent<SpriteRenderer> ().bounds.size.x * RvecX / (Radius);
-				tempGravityY += 50.0f * ballTag.GetComponent<SpriteRenderer> ().bounds.size.y * GetComponent<SpriteRenderer> ().bounds.size.y * RvecY / (Radius);
+				tempGravityX += GravityFactor * ballTag.GetComponent<SpriteRenderer> ().bounds.size.x * GetComponent<SpriteRenderer> ().bounds.size.x * RvecX / (Radius);
+				tempGravityY += GravityFactor * ballTag.GetComponent<SpriteRenderer> ().bounds.size.y * GetComponent<SpriteRenderer> ().bounds.size.y * RvecY / (Radius);
 			}
 
 			Vector2 gravityForce = new Vector2 ((float)tempGravityX, (float)tempGravityY);

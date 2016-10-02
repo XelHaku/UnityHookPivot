@@ -5,6 +5,7 @@ using System.Linq;
 using System;
 
 
+
 public class BallPivotMechanicsOnTouch : MonoBehaviour {
 	//public GameObject[] PivotsTagged;
 	//public GameObject   FoodBullet;
@@ -14,6 +15,7 @@ public class BallPivotMechanicsOnTouch : MonoBehaviour {
 	//public bool BallClockwiseRotation;
 	public float maxSpeed = 2000f;
 	GameObject  closestPivot ;
+	public float GravityFactor;
 
 
 	// Use this for initialization
@@ -50,35 +52,55 @@ public class BallPivotMechanicsOnTouch : MonoBehaviour {
 				GameObject RealCamera = GameObject.FindGameObjectWithTag ("MainCamera"); 
 			//TouchSquare for PIVOT
 
-			if( touch.phase == TouchPhase.Began){
+			if( touch.phase == TouchPhase.Began && touch.phase == TouchPhase.Stationary ){
 				
 			
 				if(BallState == "Free" ){
+
 					closestPivot = GetNearestTaggedPivot();
+					if (touch.phase == TouchPhase.Stationary || touch.phase == TouchPhase.Moved ) {
+						Vector3 wp = Camera.main.ScreenToWorldPoint (Input.GetTouch (0).position);
+						Vector2 touchPos = new Vector2 (wp.x, wp.y);
+
+						if (closestPivot.GetComponent<Collider2D> () == Physics2D.OverlapPoint (touchPos)) {
+
+							//////////////////
+							ApplyGravityForceToBall (closestPivot);
+
+
+						} else {
+
+						}
+
+					}
 					if(Vector3.Distance(GetComponent<Transform>().position,closestPivot.GetComponent<Transform>().position) <= 3.0f*closestPivot.GetComponent<Transform>().localScale.x){
 						BallState = "Hooked";
 						sprenderWhiteGlow.enabled = true;
 						Debug.Log("Hooked to Pivot");
 						GetComponent<DistanceJoint2D>().enabled = true;
-						GetComponent<DistanceJoint2D>().connectedAnchor = closestPivot.GetComponent<Transform>().position;
 						GetComponent<DistanceJoint2D>().distance = Vector3.Distance(GetComponent<Transform>().position,closestPivot.GetComponent<Transform>().position);
+						GetComponent<DistanceJoint2D>().connectedAnchor = closestPivot.GetComponent<Transform>().position;
+
 						Vector2 Force = PropulsionFromHook(closestPivot);
 						GetComponent<Rigidbody2D> ().AddForce (Force);
 					}		
 				}else{
+					sprenderWhiteGlow.enabled = false;
 					GetComponent<DistanceJoint2D>().enabled = false;
 					BallState = "Free";
-					sprenderWhiteGlow.enabled = false;
 					Debug.Log("Free");
 				}
 			}
 
-			if( touch.phase == TouchPhase.Stationary  && BallState == "Free"){
-				//ApplyGravityForce("Pivot");
-				
-			}
+		
 
 			
+		}
+
+		foreach (Touch touch in Input.touches) {
+			
+
+
 		}
 
 		//FOR THE KEYBOARD
@@ -104,10 +126,19 @@ public class BallPivotMechanicsOnTouch : MonoBehaviour {
 				Debug.Log("Free");
 			}
 		}
-		if (Input.GetKey (KeyCode.Z) && BallState == "Free" ) {
-			//ApplyGravityForce("Pivot");
+		RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+
+		GameObject[] activePivot = GameObject.FindGameObjectsWithTag ("Pivot");
+		foreach( var pivotHover in activePivot){
+			if(hit.collider == pivotHover.GetComponent<Collider2D>())
+		{
+			//Vector3 wp = Camera.main.ScreenToWorldPoint (Input.GetTouch (0).position);
+			//Vector2 touchPos = new Vector2 (wp.x, wp.y);
+				Debug.Log ("Target Position: " + hit.collider.gameObject.transform.position);
+				ApplyGravityForceToBall (pivotHover);
+			
+			}
 		}
-		
 	
 		
 	
@@ -160,32 +191,30 @@ public class BallPivotMechanicsOnTouch : MonoBehaviour {
 	}
 
 
-	void ApplyGravityForce(string pivotType){
+	void ApplyGravityForceToBall(GameObject pivotType){
 		double tempGravityX = 0;
 		double tempGravityY = 0;
 		
 		float RvecX, RvecY;
 		double Radius;
 		
-		GameObject[] PivotsTagged = GameObject.FindGameObjectsWithTag (pivotType); 
-		foreach (var pivotTag in PivotsTagged) {
 			
 			//change gravity
-			RvecX = GetComponent<Rigidbody2D> ().position.x - pivotTag.GetComponent<SpriteRenderer> ().bounds.center.x;
-			RvecY = GetComponent<Rigidbody2D> ().position.y - pivotTag.GetComponent<SpriteRenderer> ().bounds.center.y;
+			RvecX = GetComponent<Rigidbody2D> ().position.x - pivotType.GetComponent<SpriteRenderer> ().bounds.center.x;
+			RvecY = GetComponent<Rigidbody2D> ().position.y - pivotType.GetComponent<SpriteRenderer> ().bounds.center.y;
 			Radius = Math.Pow (RvecX, 2.0f) + Math.Pow (RvecY, 2.0f);
 			Radius = Math.Pow (Radius, 0.5f);
 			
 			
 			Radius = Math.Pow (Radius, 3f);
 			
-			if (Radius > pivotTag.GetComponent<SpriteRenderer> ().bounds.size.x) {
-				tempGravityX += -100.0f * pivotTag.GetComponent<SpriteRenderer> ().bounds.size.x * GetComponent<SpriteRenderer> ().bounds.size.x * RvecX / (Radius);
-				tempGravityY += -100.0f * pivotTag.GetComponent<SpriteRenderer> ().bounds.size.y * GetComponent<SpriteRenderer> ().bounds.size.y * RvecY / (Radius);
-					}
+		if (Radius > pivotType.GetComponent<SpriteRenderer> ().bounds.size.x) {
+				tempGravityX -= GravityFactor * GetComponent<SpriteRenderer> ().bounds.size.x * GetComponent<SpriteRenderer> ().bounds.size.x * RvecX / (Radius);
+				tempGravityY -= GravityFactor * GetComponent<SpriteRenderer> ().bounds.size.y * GetComponent<SpriteRenderer> ().bounds.size.y * RvecY / (Radius);
+								}
 			
 			
-		}
+		
 		
 		Vector2 gravityForce = new Vector2 ((float)tempGravityX, (float)tempGravityY);
 		GetComponent<Rigidbody2D> ().AddForce (gravityForce);
