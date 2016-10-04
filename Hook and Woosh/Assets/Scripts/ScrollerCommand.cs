@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class ScrollerCommand : MonoBehaviour {
-	public float ScrollerSpeed = -1f;
+	public float ScrollerSpeed;
 	// Use this for initialization
 	void Start () {
 		Rigidbody2D elementRigid = GetComponent<Rigidbody2D> ();

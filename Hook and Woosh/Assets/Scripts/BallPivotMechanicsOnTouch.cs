@@ -10,10 +10,10 @@ public class BallPivotMechanicsOnTouch : MonoBehaviour {
 	//public GameObject[] PivotsTagged;
 	//public GameObject   FoodBullet;
 	public static string BallState;
-	public SpriteRenderer sprenderWhiteGlow;
+	public GameObject GravityGlow;
 //	public SpriteRenderer sprenderMagentaGlow;
 	//public bool BallClockwiseRotation;
-	public float maxSpeed = 2000f;
+	public float maxSpeed;
 	GameObject  closestPivot ;
 	public float GravityFactor;
 
@@ -23,11 +23,8 @@ public class BallPivotMechanicsOnTouch : MonoBehaviour {
 		//GetComponent<Rigidbody2D> ().velocity = new Vector3 (0, 100.0f, 0);
 		GetComponent<DistanceJoint2D>().enabled = false;
 		BallState = "Free";
-		var taggedWhiteGlow = GameObject.FindGameObjectsWithTag("WhiteGlow");
-		foreach (GameObject objGlow in taggedWhiteGlow) {
-			sprenderWhiteGlow = 	objGlow.GetComponentInChildren<SpriteRenderer>();
-			sprenderWhiteGlow.enabled = false;
-		}
+		GravityGlow = GameObject.FindGameObjectWithTag("GravityGlow");
+
 //		var taggedMagentaGlow = GameObject.FindGameObjectsWithTag("MagentaGlow");
 //		foreach (GameObject objGlow in taggedMagentaGlow) {
 //			sprenderMagentaGlow = 	objGlow.GetComponentInChildren<SpriteRenderer>();
@@ -43,6 +40,7 @@ public class BallPivotMechanicsOnTouch : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		ApplyGravityGlowForceToBall ();
 
 
 	foreach (Touch touch in Input.touches) {
@@ -54,41 +52,41 @@ public class BallPivotMechanicsOnTouch : MonoBehaviour {
 
 			if( touch.phase == TouchPhase.Began && touch.phase == TouchPhase.Stationary ){
 				
-			
+				closestPivot = GetNearestTaggedPivot();
+				Vector3 wp = Camera.main.ScreenToWorldPoint (Input.GetTouch (0).position);
+				Vector2 touchPos = new Vector2 (wp.x, wp.y);
 				if(BallState == "Free" ){
-
-					closestPivot = GetNearestTaggedPivot();
+					
 					if (touch.phase == TouchPhase.Stationary || touch.phase == TouchPhase.Moved ) {
-						Vector3 wp = Camera.main.ScreenToWorldPoint (Input.GetTouch (0).position);
-						Vector2 touchPos = new Vector2 (wp.x, wp.y);
+						
 
 						if (closestPivot.GetComponent<Collider2D> () == Physics2D.OverlapPoint (touchPos)) {
+						// NOW CHANGE GRAVITY FLOW TO PIVOT POSITION	ApplyGravityForceToBall (closestPivot);
 
-							//////////////////
-							ApplyGravityForceToBall (closestPivot);
+						} else if(Vector3.Distance(GetComponent<Transform>().position,closestPivot.GetComponent<Transform>().position) <= 3.0f*closestPivot.GetComponent<Transform>().localScale.x){
+							BallState = "Hooked";
 
+							Debug.Log("Hooked to Pivot");
+							GetComponent<DistanceJoint2D>().enabled = true;
+							GetComponent<DistanceJoint2D>().distance = Vector3.Distance(GetComponent<Transform>().position,closestPivot.GetComponent<Transform>().position);
+							GetComponent<DistanceJoint2D>().connectedAnchor = closestPivot.GetComponent<Transform>().position;
 
-						} else {
-
+							Vector2 Force = PropulsionFromHook(closestPivot);
+							GetComponent<Rigidbody2D> ().AddForce (Force);
 						}
 
 					}
-					if(Vector3.Distance(GetComponent<Transform>().position,closestPivot.GetComponent<Transform>().position) <= 3.0f*closestPivot.GetComponent<Transform>().localScale.x){
-						BallState = "Hooked";
-						sprenderWhiteGlow.enabled = true;
-						Debug.Log("Hooked to Pivot");
-						GetComponent<DistanceJoint2D>().enabled = true;
-						GetComponent<DistanceJoint2D>().distance = Vector3.Distance(GetComponent<Transform>().position,closestPivot.GetComponent<Transform>().position);
-						GetComponent<DistanceJoint2D>().connectedAnchor = closestPivot.GetComponent<Transform>().position;
-
-						Vector2 Force = PropulsionFromHook(closestPivot);
-						GetComponent<Rigidbody2D> ().AddForce (Force);
-					}		
+			
+				
+				
 				}else{
-					sprenderWhiteGlow.enabled = false;
-					GetComponent<DistanceJoint2D>().enabled = false;
-					BallState = "Free";
-					Debug.Log("Free");
+					if (closestPivot.GetComponent<Collider2D> () == Physics2D.OverlapPoint (touchPos)) {
+						
+					} else {
+						GetComponent<DistanceJoint2D> ().enabled = false;
+						BallState = "Free";
+						Debug.Log ("Free");
+					}
 				}
 			}
 
@@ -97,11 +95,6 @@ public class BallPivotMechanicsOnTouch : MonoBehaviour {
 			
 		}
 
-		foreach (Touch touch in Input.touches) {
-			
-
-
-		}
 
 		//FOR THE KEYBOARD
 		
@@ -111,7 +104,6 @@ public class BallPivotMechanicsOnTouch : MonoBehaviour {
 				 closestPivot = GetNearestTaggedPivot();
 				if(Vector3.Distance(GetComponent<Transform>().position,closestPivot.GetComponent<Transform>().position) <= 3.0f*closestPivot.GetComponent<Transform>().localScale.x){
 					BallState = "Hooked";
-					sprenderWhiteGlow.enabled = true;
 					Debug.Log("Hooked to Pivot");
 					GetComponent<DistanceJoint2D>().enabled = true;
 					GetComponent<DistanceJoint2D>().connectedAnchor = closestPivot.GetComponent<Transform>().position;
@@ -120,7 +112,7 @@ public class BallPivotMechanicsOnTouch : MonoBehaviour {
 					GetComponent<Rigidbody2D> ().AddForce (Force);
 				}		
 			}else{
-				sprenderWhiteGlow.enabled = false;
+				
 				GetComponent<DistanceJoint2D>().enabled = false;
 				BallState = "Free";
 				Debug.Log("Free");
@@ -135,7 +127,8 @@ public class BallPivotMechanicsOnTouch : MonoBehaviour {
 			//Vector3 wp = Camera.main.ScreenToWorldPoint (Input.GetTouch (0).position);
 			//Vector2 touchPos = new Vector2 (wp.x, wp.y);
 				Debug.Log ("Target Position: " + hit.collider.gameObject.transform.position);
-				ApplyGravityForceToBall (pivotHover);
+
+				GravityGlow.GetComponent<Rigidbody2D>().position = pivotHover.GetComponent<Rigidbody2D>().position;
 			
 			}
 		}
@@ -190,6 +183,35 @@ public class BallPivotMechanicsOnTouch : MonoBehaviour {
 		return closestPivot;
 	}
 
+	void ApplyGravityGlowForceToBall(){
+		double tempGravityX = 0;
+		double tempGravityY = 0;
+
+		float RvecX, RvecY;
+		double Radius;
+
+
+		//change gravity
+		RvecX = GetComponent<Rigidbody2D> ().position.x - GravityGlow.GetComponent<SpriteRenderer> ().bounds.center.x;
+		RvecY = GetComponent<Rigidbody2D> ().position.y - GravityGlow.GetComponent<SpriteRenderer> ().bounds.center.y;
+		Radius = Math.Pow (RvecX, 2.0f) + Math.Pow (RvecY, 2.0f);
+		Radius = Math.Pow (Radius, 0.5f);
+
+
+		Radius = Math.Pow (Radius, 3f);
+
+		if (Radius > GravityGlow.GetComponent<SpriteRenderer> ().bounds.size.x) {
+			tempGravityX -= GravityFactor * GetComponent<SpriteRenderer> ().bounds.size.x * GetComponent<SpriteRenderer> ().bounds.size.x * RvecX / (Radius);
+			tempGravityY -= GravityFactor * GetComponent<SpriteRenderer> ().bounds.size.y * GetComponent<SpriteRenderer> ().bounds.size.y * RvecY / (Radius);
+		}
+
+
+
+
+		Vector2 gravityForce = new Vector2 ((float)tempGravityX, (float)tempGravityY);
+		GetComponent<Rigidbody2D> ().AddForce (gravityForce);
+
+	}
 
 	void ApplyGravityForceToBall(GameObject pivotType){
 		double tempGravityX = 0;

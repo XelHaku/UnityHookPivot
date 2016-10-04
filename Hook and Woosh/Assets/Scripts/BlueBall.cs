@@ -14,7 +14,7 @@ public class BlueBall : MonoBehaviour {
 		playerRadius = playerCollider.bounds.extents.x;
 		Rigidbody2D blueBallRigid = GetComponent<Rigidbody2D> ();
 
-		blueBallRigid.AddForce( new Vector2 (10f, 0.0f));
+		blueBallRigid.AddForce( new Vector2 (8f, 0.0f));
 
 
 		float camDistance = Vector3.Distance(transform.position, Camera.main.transform.position);

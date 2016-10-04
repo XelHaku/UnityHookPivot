@@ -18,7 +18,7 @@ public class DestroyOnContactTRAP : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D col) {
 
 		if (col.gameObject.tag == "Ball") {
-			ScoreManager.score -= 30;
+			ScoreManager.score -= 50;
 			Destroy (gameObject); 
 		} else if (col.gameObject.tag == "Wallbrick" || col.gameObject.tag == "SpikeSeeker" ) {
 			ScoreManager.score += 1;

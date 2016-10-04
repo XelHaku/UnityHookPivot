@@ -48,6 +48,7 @@
      <Compile Include="Assets\Scripts\BallPivotMechanicsOnTouch.cs" />
      <Compile Include="Assets\Scripts\BallSpikeSeekerMechanics.cs" />
      <Compile Include="Assets\Scripts\BlueBall.cs" />
+     <Compile Include="Assets\Scripts\CameraScroller.cs" />
      <Compile Include="Assets\Scripts\DestroyOnContactTRAP.cs" />
      <Compile Include="Assets\Scripts\GameController.cs" />
      <Compile Include="Assets\Scripts\Jewel.cs" />
