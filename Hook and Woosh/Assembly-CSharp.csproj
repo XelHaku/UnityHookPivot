@@ -57,6 +57,7 @@
      <Compile Include="Assets\Scripts\ScreenBoundary.cs" />
      <Compile Include="Assets\Scripts\ScrollerCommand.cs" />
      <Compile Include="Assets\Scripts\SetScaleSize.cs" />
+     <Compile Include="Assets\Scripts\Slider.cs" />
      <Compile Include="Assets\Scripts\SpikeSeeker.cs" />
      <Compile Include="Assets\Scripts\YELLOW_wallbrickscript.cs" />
  <Reference Include="UnityEngine.UI">
