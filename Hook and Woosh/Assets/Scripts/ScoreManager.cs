@@ -37,7 +37,7 @@ public class ScoreManager : MonoBehaviour {
 			{
 				// .. then reload the currently loaded level.
 				//Application.LoadLevel(Application.loadedLevel);
-				UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
+				UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu",UnityEngine.SceneManagement.LoadSceneMode.Single);
 			}
 		}
 	}

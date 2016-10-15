@@ -64,6 +64,7 @@
      <Compile Include="Assets\Scripts\ScrollerCommand.cs" />
      <Compile Include="Assets\Scripts\SetScaleSize.cs" />
      <Compile Include="Assets\Scripts\StartGameRandomLevel.cs" />
+     <Compile Include="Assets\SpawnBall.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

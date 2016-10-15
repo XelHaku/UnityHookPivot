@@ -3,18 +3,23 @@ using System.Collections;
 
 public class ScrollerCommand : MonoBehaviour {
 	public float ScrollerSpeed;
-	public GameObject BallPlayer;
+	 GameObject BallPlayer, Entrance;
 	Rigidbody2D elementRigid; 
 	// Use this for initialization
 	void Start () {
 		 elementRigid = GetComponent<Rigidbody2D> ();
 		//elementRigid.velocity = new Vector2 (ScrollerSpeed,0.0f);
-		BallPlayer = GameObject.FindGameObjectWithTag("Ball");
+		Entrance = GameObject.FindGameObjectWithTag("EntranceDoor");
+		elementRigid.position = new Vector2 (Entrance.GetComponent<Rigidbody2D> ().position.x, 0.0f);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
-		elementRigid.position = new Vector2 (BallPlayer.GetComponent<Rigidbody2D> ().position.x,0.0f);
-	}
+
+		if (BallPlayer != null) {
+			elementRigid.position = new Vector2 (BallPlayer.GetComponent<Rigidbody2D> ().position.x, 0.0f);
+		} else {
+			BallPlayer = GameObject.FindGameObjectWithTag("Ball");
+		}
+		}
 }

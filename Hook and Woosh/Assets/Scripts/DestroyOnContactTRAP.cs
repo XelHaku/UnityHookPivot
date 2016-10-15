@@ -20,7 +20,7 @@ public class DestroyOnContactTRAP : MonoBehaviour {
 		if (col.gameObject.tag == "Ball") {
 			CreateSCOREgame.GameScore -= 50;
 			Destroy (gameObject); 
-		} else if (col.gameObject.tag == "Wallbrick" || col.gameObject.tag == "SpikeSeeker" ) {
+		} else if (col.gameObject.tag == "asdWallbrick" || col.gameObject.tag == "SpikeSeeker" ) {
 			CreateSCOREgame.GameScore += 1;
 			Destroy (gameObject); }
 		}
