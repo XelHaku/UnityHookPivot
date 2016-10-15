@@ -20,9 +20,9 @@ public class ScoreManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		text.text = "Score: " + score;
-
-		if(score< 0)
+		//text.text = "Score: " + score;
+		text.text = "Score: " + CreateSCOREgame.GameScore;
+		if(CreateSCOREgame.GameScore< 0)
 		{
 			GameObject BALL = GameObject.FindGameObjectWithTag ("Ball");
 			DestroyObject (BALL);

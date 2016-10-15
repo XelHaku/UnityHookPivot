@@ -1,14 +1,18 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\DestroyOnContactTRAP.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\CreateSCOREgame.cs">
     <Files>
-      <File FileName="Assets\Scripts\CameraScroller.cs" Line="10" Column="5" />
-      <File FileName="Assets\Scripts\ScrollerCommand.cs" Line="5" Column="28" />
-      <File FileName="Assets\Scripts\BallPivotMechanicsOnTouch.cs" Line="16" Column="23" />
-      <File FileName="Assets\Scripts\Pivot.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\DestroyOnContactTRAP.cs" Line="21" Column="28" />
+      <File FileName="Assets\Scripts\DestroyOnContactTRAP.cs" Line="16" Column="25" />
       <File FileName="Assets\Scripts\ScreenBoundary.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\BlueBall.cs" Line="17" Column="41" />
+      <File FileName="Assets\Scripts\ScoreManager.cs" Line="25" Column="31" />
+      <File FileName="Assets\Scripts\GoRandomLevel.cs" Line="7" Column="2" />
+      <File FileName="Assets\Scripts\StartGameRandomLevel.cs" Line="3" Column="1" />
+      <File FileName="Assets\Scripts\ExitDoorChangeLevelScene.cs" Line="31" Column="33" />
+      <File FileName="Assets\Scripts\CreateSCOREgame.cs" Line="14" Column="1" />
+      <File FileName="Assets\Scripts\Elements\Jewel.cs" Line="32" Column="29" />
+      <File FileName="Assets\Scripts\Elements\SpikeSeeker.cs" Line="28" Column="15" />
+      <File FileName="Assets\Scripts\Ball\BallSpikeSeekerMechanics.cs" Line="23" Column="14" />
+      <File FileName="Assets\Scripts\Ball\BallPivotMechanicsOnTouch.cs" Line="28" Column="18" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
