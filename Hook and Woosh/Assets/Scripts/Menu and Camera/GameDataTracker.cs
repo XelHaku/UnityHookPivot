@@ -3,7 +3,7 @@ using System.Collections;
 
 public class GameDataTracker : MonoBehaviour {
 	public static int GameScore=0;
-	public static int Lives = 2;
+	public static int Lives = 3;
 	public static int ReachedLevels=1;
 	void start(){
 		Reset ();
@@ -11,7 +11,7 @@ public class GameDataTracker : MonoBehaviour {
 	}
 	public static void Reset(){
 		ReachedLevels = 1;
-		Lives=2;
+		Lives=3;
 		GameScore = 0;
 	}
 
