@@ -45,28 +45,33 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\LivesScreenCounter.cs" />
+     <Compile Include="Assets\RotateSpeed.cs" />
+     <Compile Include="Assets\Scripts\Ball\BallBlackhole.cs" />
      <Compile Include="Assets\Scripts\Ball\BallPivotMechanicsOnTouch.cs" />
      <Compile Include="Assets\Scripts\Ball\BallSpikeSeekerMechanics.cs" />
      <Compile Include="Assets\Scripts\Ball\BlueBall.cs" />
-     <Compile Include="Assets\Scripts\CameraScroller.cs" />
-     <Compile Include="Assets\Scripts\DestroyOnContactTRAP.cs" />
+     <Compile Include="Assets\Scripts\Elements\DestroyOnContactTRAP.cs" />
+     <Compile Include="Assets\Scripts\Elements\ExitDoorChangeLevelScene.cs" />
+     <Compile Include="Assets\Scripts\Elements\FadeLine.cs" />
      <Compile Include="Assets\Scripts\Elements\Jewel.cs" />
      <Compile Include="Assets\Scripts\Elements\Pivot.cs" />
      <Compile Include="Assets\Scripts\Elements\Slider.cs" />
+     <Compile Include="Assets\Scripts\Elements\SpawnBall.cs" />
      <Compile Include="Assets\Scripts\Elements\SpikeSeeker.cs" />
      <Compile Include="Assets\Scripts\Elements\YELLOW_wallbrickscript.cs" />
-     <Compile Include="Assets\Scripts\ExitDoorChangeLevelScene.cs" />
-     <Compile Include="Assets\Scripts\FadeLine.cs" />
-     <Compile Include="Assets\Scripts\GameController.cs" />
-     <Compile Include="Assets\Scripts\GameDataTracker.cs" />
-     <Compile Include="Assets\Scripts\GoRandomLevel.cs" />
-     <Compile Include="Assets\Scripts\ScoreManager.cs" />
-     <Compile Include="Assets\Scripts\ScreenBoundary.cs" />
-     <Compile Include="Assets\Scripts\ScrollerCommand.cs" />
-     <Compile Include="Assets\Scripts\SetScaleSize.cs" />
-     <Compile Include="Assets\Scripts\SpawnBall.cs" />
-     <Compile Include="Assets\Scripts\StartGameRandomLevel.cs" />
+     <Compile Include="Assets\Scripts\Menu and Camera\CameraScroller.cs" />
+     <Compile Include="Assets\Scripts\Menu and Camera\GameDataTracker.cs" />
+     <Compile Include="Assets\Scripts\Menu and Camera\GoRandomLevel.cs" />
+     <Compile Include="Assets\Scripts\Menu and Camera\GoSceneNumber.cs" />
+     <Compile Include="Assets\Scripts\Menu and Camera\LivesScreenCounter.cs" />
+     <Compile Include="Assets\Scripts\Menu and Camera\PauseResumeGame.cs" />
+     <Compile Include="Assets\Scripts\Menu and Camera\ScoreManager.cs" />
+     <Compile Include="Assets\Scripts\Menu and Camera\ScreenBoundary.cs" />
+     <Compile Include="Assets\Scripts\Menu and Camera\ScrollerCommand.cs" />
+     <Compile Include="Assets\Scripts\Menu and Camera\ShowLevelNumber.cs" />
+     <Compile Include="Assets\Scripts\Menu and Camera\ShowPauseCanvas.cs" />
+     <Compile Include="Assets\Scripts\Menu and Camera\ShowScoreText.cs" />
+     <Compile Include="Assets\Scripts\Menu and Camera\StartGameRandomLevel.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
