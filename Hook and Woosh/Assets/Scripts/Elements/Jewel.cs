@@ -29,7 +29,7 @@ public class Jewel : MonoBehaviour {
 
 		if (col.gameObject.tag == "Ball") {
 			//PENDING ADD SCORE
-			CreateSCOREgame.GameScore +=scoreValue;
+			GameDataTracker.GameScore +=scoreValue;
 			//gameController.AddScore (scoreValue);
 			Destroy(gameObject); 
 		}

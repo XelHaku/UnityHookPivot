@@ -18,10 +18,11 @@ public class DestroyOnContactTRAP : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D col) {
 
 		if (col.gameObject.tag == "Ball") {
-			CreateSCOREgame.GameScore -= 50;
+			//GameDataTracker.GameScore -= 50;
+			GameDataTracker.Lives -=1;
 			Destroy (gameObject); 
 		} else if (col.gameObject.tag == "asdWallbrick" || col.gameObject.tag == "SpikeSeeker" ) {
-			CreateSCOREgame.GameScore += 1;
+			GameDataTracker.GameScore += 1;
 			Destroy (gameObject); }
 		}
 

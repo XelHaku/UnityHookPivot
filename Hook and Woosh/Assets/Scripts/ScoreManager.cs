@@ -21,8 +21,8 @@ public class ScoreManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		//text.text = "Score: " + score;
-		text.text = "Score: " + CreateSCOREgame.GameScore;
-		if(CreateSCOREgame.GameScore< 0)
+		text.text = "Score: " + GameDataTracker.GameScore;
+		if(GameDataTracker.Lives <= 0)
 		{
 			GameObject BALL = GameObject.FindGameObjectWithTag ("Ball");
 			DestroyObject (BALL);
@@ -31,14 +31,16 @@ public class ScoreManager : MonoBehaviour {
 
 			// .. increment a timer to count up to restarting.
 			restartTimer += Time.deltaTime;
-
+			//ADD SUCCES SCREEN MOT GAMER OVER AND SHOW PROGRESS
 			// .. if it reaches the restart delay...
 			if(restartTimer >= restartDelay)
 			{
+				GameDataTracker.Reset ();
 				// .. then reload the currently loaded level.
 				//Application.LoadLevel(Application.loadedLevel);
 				UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu",UnityEngine.SceneManagement.LoadSceneMode.Single);
 			}
+
 		}
 	}
 }

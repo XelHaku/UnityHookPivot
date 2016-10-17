@@ -45,11 +45,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\LivesScreenCounter.cs" />
      <Compile Include="Assets\Scripts\Ball\BallPivotMechanicsOnTouch.cs" />
      <Compile Include="Assets\Scripts\Ball\BallSpikeSeekerMechanics.cs" />
      <Compile Include="Assets\Scripts\Ball\BlueBall.cs" />
      <Compile Include="Assets\Scripts\CameraScroller.cs" />
-     <Compile Include="Assets\Scripts\CreateSCOREgame.cs" />
      <Compile Include="Assets\Scripts\DestroyOnContactTRAP.cs" />
      <Compile Include="Assets\Scripts\Elements\Jewel.cs" />
      <Compile Include="Assets\Scripts\Elements\Pivot.cs" />
@@ -57,14 +57,16 @@
      <Compile Include="Assets\Scripts\Elements\SpikeSeeker.cs" />
      <Compile Include="Assets\Scripts\Elements\YELLOW_wallbrickscript.cs" />
      <Compile Include="Assets\Scripts\ExitDoorChangeLevelScene.cs" />
+     <Compile Include="Assets\Scripts\FadeLine.cs" />
      <Compile Include="Assets\Scripts\GameController.cs" />
+     <Compile Include="Assets\Scripts\GameDataTracker.cs" />
      <Compile Include="Assets\Scripts\GoRandomLevel.cs" />
      <Compile Include="Assets\Scripts\ScoreManager.cs" />
      <Compile Include="Assets\Scripts\ScreenBoundary.cs" />
      <Compile Include="Assets\Scripts\ScrollerCommand.cs" />
      <Compile Include="Assets\Scripts\SetScaleSize.cs" />
+     <Compile Include="Assets\Scripts\SpawnBall.cs" />
      <Compile Include="Assets\Scripts\StartGameRandomLevel.cs" />
-     <Compile Include="Assets\SpawnBall.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

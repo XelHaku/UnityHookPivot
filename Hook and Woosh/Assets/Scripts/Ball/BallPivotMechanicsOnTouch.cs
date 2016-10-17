@@ -17,11 +17,14 @@ public class BallPivotMechanicsOnTouch : MonoBehaviour {
 	public float hookRadius;
 	public float sliderMagnitude;
 	GameObject  closestPivot ;
+	GameObject  actualPivot ;
 	public float GravityFactor;
 	private SpriteRenderer sprenderWhiteGlow;
 	private Component SliderJoint;
 	private GameObject activeSlider;
-
+	private LineRenderer LineToPivot;
+	public GameObject LinePrefab;
+	private  GameObject actualLine;
 
 	// Use this for initialization
 	void Start () {
@@ -200,6 +203,10 @@ public class BallPivotMechanicsOnTouch : MonoBehaviour {
 //			GetComponent<DistanceJoint2D>().connectedAnchor = closestPivot.GetComponent<Transform>().position;
 //		}
 
+		//DRAW LINE TO PIVOT
+		if(BallState == "Hooked"){
+			CreateLine (closestPivot.GetComponent<Rigidbody2D> ().position, (GetComponent<Rigidbody2D> ().position - closestPivot.GetComponent<Rigidbody2D> ().position)/1.1f + closestPivot.GetComponent<Rigidbody2D> ().position);
+		}
 	}//END UPDATE
 	void FixedUpdate()
 	{
@@ -355,6 +362,15 @@ public class BallPivotMechanicsOnTouch : MonoBehaviour {
 		}
 		GetComponent<Rigidbody2D> ().AddForce (appliedForce);
 		//return new Vector2 (appliedForce.x, appliedForce.y);
+	}
+
+	void CreateLine(Vector3 LinePivot,Vector3 LineBall)
+	{
+		actualLine = (Instantiate(LinePrefab,GetComponent<Rigidbody2D>().position,Quaternion.identity) as GameObject);
+		actualLine.GetComponent<LineRenderer> ().SetPosition (0,LineBall );
+		actualLine.GetComponent<LineRenderer> ().SetPosition (1,LinePivot );
+
+		//EllipsePoint.GeComponent<Rigidbody2D>().position = GetComponent<Rigidbody2D>().position;
 	}
 
 	IEnumerator	DeactivateColliderDelay(GameObject objectColliderDelayed){

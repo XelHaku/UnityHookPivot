@@ -15,8 +15,10 @@ public class BallSpikeSeekerMechanics : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		closestSpikeSeeker = GetNearestTaggedSpike ();
-		if (Vector3.Distance (GetComponent<Transform> ().position, closestSpikeSeeker.GetComponent<Transform> ().position) <= 4.0f * closestSpikeSeeker.GetComponent<Transform> ().localScale.x) {
-			ApplyGravityForceToSpike (closestSpikeSeeker);
+		if (closestSpikeSeeker != null) {
+			if (Vector3.Distance (GetComponent<Transform> ().position, closestSpikeSeeker.GetComponent<Transform> ().position) <= 4.0f * closestSpikeSeeker.GetComponent<Transform> ().localScale.x) {
+				ApplyGravityForceToSpike (closestSpikeSeeker);
+			}
 		}
 	}
 
@@ -26,16 +28,17 @@ public class BallSpikeSeekerMechanics : MonoBehaviour {
 		//GameObject nearestObj;
 		GameObject closestPivot = null;
 		// loop through each tagged object, remembering nearest one found
-		foreach (GameObject obj in taggedGameObjects) {
-			var objectPos = obj.transform.position;
-			var distanceSqr = (objectPos - transform.position).sqrMagnitude;
-			if (distanceSqr < nearestDistanceSqr) {
-				//nearestObj = obj.transform;
-				nearestDistanceSqr = distanceSqr;
-				closestPivot = obj;
+		if (taggedGameObjects != null) {
+			foreach (GameObject obj in taggedGameObjects) {
+				var objectPos = obj.transform.position;
+				var distanceSqr = (objectPos - transform.position).sqrMagnitude;
+				if (distanceSqr < nearestDistanceSqr) {
+					//nearestObj = obj.transform;
+					nearestDistanceSqr = distanceSqr;
+					closestPivot = obj;
+				}
 			}
 		}
-
 		return closestPivot;
 	}
 
