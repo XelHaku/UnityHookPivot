@@ -17,7 +17,7 @@ public class BallPivotMechanicsOnTouch : MonoBehaviour {
 	public float hookRadius;
 	public float sliderMagnitude;
 	GameObject  closestPivot ;
-	GameObject  actualPivot ;
+	public static GameObject  actualPivot ;
 	public float GravityFactor;
 	private SpriteRenderer sprenderWhiteGlow;
 	private Component SliderJoint;
@@ -72,6 +72,7 @@ public class BallPivotMechanicsOnTouch : MonoBehaviour {
 			if( touch.phase == TouchPhase.Began && touch.phase == TouchPhase.Stationary ){
 				
 				closestPivot = GetNearestTaggedPivot();
+
 				Vector3 wp = Camera.main.ScreenToWorldPoint (Input.GetTouch (0).position);
 				Vector2 touchPos = new Vector2 (wp.x, wp.y);
 				if(BallState == "Free" ){
@@ -79,19 +80,20 @@ public class BallPivotMechanicsOnTouch : MonoBehaviour {
 					if (touch.phase == TouchPhase.Stationary || touch.phase == TouchPhase.Moved ) {
 						
 
-						if (closestPivot.GetComponent<Collider2D> () == Physics2D.OverlapPoint (touchPos)) {
+						if (actualPivot.GetComponent<Collider2D> () == Physics2D.OverlapPoint (touchPos)) {
 
 
-						} else if(Vector3.Distance(GetComponent<Transform>().position,closestPivot.GetComponent<Transform>().position) <= hookRadius*closestPivot.GetComponent<Transform>().localScale.x){
+						} else if(Vector3.Distance(GetComponent<Transform>().position,actualPivot.GetComponent<Transform>().position) <= hookRadius*actualPivot.GetComponent<Transform>().localScale.x){
 							BallState = "Hooked";
+							//actualPivot = closestPivot;
 							sprenderWhiteGlow.enabled = true;
 							Debug.Log("Hooked to Pivot");
 							GetComponent<DistanceJoint2D>().enabled = true;
-							GetComponent<DistanceJoint2D>().connectedAnchor = closestPivot.GetComponent<Transform>().position;
-							GetComponent<DistanceJoint2D>().distance = Vector3.Distance(GetComponent<Transform>().position,closestPivot.GetComponent<Transform>().position);
-							GetComponent<DistanceJoint2D>().connectedAnchor = closestPivot.GetComponent<Transform>().position;
+							//GetComponent<DistanceJoint2D>().connectedAnchor = closestPivot.GetComponent<Transform>().position;
+							GetComponent<DistanceJoint2D>().distance = Vector3.Distance(GetComponent<Transform>().position,actualPivot.GetComponent<Transform>().position);
+							GetComponent<DistanceJoint2D>().connectedAnchor = actualPivot.GetComponent<Transform>().position;
 
-							Vector2 Force = PropulsionFromHook(closestPivot);
+							Vector2 Force = PropulsionFromHook(actualPivot);
 							GetComponent<Rigidbody2D> ().AddForce (Force);
 						}
 
@@ -100,7 +102,7 @@ public class BallPivotMechanicsOnTouch : MonoBehaviour {
 				
 				
 				}else{
-					if (closestPivot.GetComponent<Collider2D> () == Physics2D.OverlapPoint (touchPos)) {
+					if (actualPivot.GetComponent<Collider2D> () == Physics2D.OverlapPoint (touchPos)) {
 						
 					} else {
 						GetComponent<DistanceJoint2D> ().enabled = false;
@@ -123,19 +125,19 @@ public class BallPivotMechanicsOnTouch : MonoBehaviour {
 			if(BallState == "Free" ){
 				
 				 closestPivot = GetNearestTaggedPivot();
-				if(Vector3.Distance(GetComponent<Transform>().position,closestPivot.GetComponent<Transform>().position) <= hookRadius*closestPivot.GetComponent<Transform>().localScale.x){
+				if(Vector3.Distance(GetComponent<Transform>().position,actualPivot.GetComponent<Transform>().position) <= hookRadius*actualPivot.GetComponent<Transform>().localScale.x){
 					BallState = "Hooked";
 					sprenderWhiteGlow.enabled = true;
 					Debug.Log("Hooked to Pivot");
 					GetComponent<DistanceJoint2D>().enabled = true;
 
-					GetComponent<DistanceJoint2D>().connectedAnchor = closestPivot.GetComponent<Transform>().position;
-					GetComponent<DistanceJoint2D>().distance = Vector3.Distance(GetComponent<Transform>().position,closestPivot.GetComponent<Transform>().position);
-					Vector2 Force = PropulsionFromHook(closestPivot);
+					GetComponent<DistanceJoint2D>().connectedAnchor = actualPivot.GetComponent<Transform>().position;
+					GetComponent<DistanceJoint2D>().distance = Vector3.Distance(GetComponent<Transform>().position,actualPivot.GetComponent<Transform>().position);
+					Vector2 Force = PropulsionFromHook(actualPivot);
 					GetComponent<Rigidbody2D> ().AddForce (Force);
 				}		
 			}else if(BallState == "Hooked" ){
-				
+			//	actualPivot = closestPivot;
 				GetComponent<DistanceJoint2D>().enabled = false;
 				BallState = "Free";
 				sprenderWhiteGlow.enabled = false;
@@ -205,7 +207,8 @@ public class BallPivotMechanicsOnTouch : MonoBehaviour {
 
 		//DRAW LINE TO PIVOT
 		if(BallState == "Hooked"){
-			CreateLine (closestPivot.GetComponent<Rigidbody2D> ().position, (GetComponent<Rigidbody2D> ().position - closestPivot.GetComponent<Rigidbody2D> ().position)/1.1f + closestPivot.GetComponent<Rigidbody2D> ().position);
+			CreateLine (actualPivot.GetComponent<Rigidbody2D> ().position, (GetComponent<Rigidbody2D> ().position - actualPivot.GetComponent<Rigidbody2D> ().position)/1.1f + actualPivot.GetComponent<Rigidbody2D> ().position);
+			GetComponent<DistanceJoint2D>().connectedAnchor = actualPivot.GetComponent<Transform>().position;
 		}
 	}//END UPDATE
 	void FixedUpdate()
@@ -231,7 +234,7 @@ public class BallPivotMechanicsOnTouch : MonoBehaviour {
 				closestPivot = obj;
 			}
 		}
-
+		actualPivot = closestPivot;
 		return closestPivot;
 	}
 

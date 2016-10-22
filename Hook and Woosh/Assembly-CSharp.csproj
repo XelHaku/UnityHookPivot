@@ -72,6 +72,7 @@
      <Compile Include="Assets\Scripts\Menu and Camera\ShowPauseCanvas.cs" />
      <Compile Include="Assets\Scripts\Menu and Camera\ShowScoreText.cs" />
      <Compile Include="Assets\Scripts\Menu and Camera\StartGameRandomLevel.cs" />
+     <Compile Include="Assets\WaveMovement.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

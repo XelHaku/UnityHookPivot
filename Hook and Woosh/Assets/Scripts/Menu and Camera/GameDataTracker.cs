@@ -8,6 +8,7 @@ public class GameDataTracker : MonoBehaviour {
 	void start(){
 		Reset ();
 		DontDestroyOnLoad (gameObject);
+
 	}
 	public static void Reset(){
 		ReachedLevels = 1;

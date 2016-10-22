@@ -1,10 +1,9 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Menu and Camera\GameDataTracker.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Menu and Camera\StartGameRandomLevel.cs">
     <Files>
-      <File FileName="Assets\Scripts\Menu and Camera\StartGameRandomLevel.cs" Line="10" Column="34" />
       <File FileName="Assets\Scripts\Menu and Camera\GoRandomLevel.cs" Line="9" Column="34" />
-      <File FileName="Assets\Scripts\Menu and Camera\GameDataTracker.cs" Line="6" Column="29" />
+      <File FileName="Assets\Scripts\Menu and Camera\StartGameRandomLevel.cs" Line="2" Column="26" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
