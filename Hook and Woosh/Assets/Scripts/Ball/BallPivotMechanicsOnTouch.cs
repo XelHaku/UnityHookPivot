@@ -369,10 +369,11 @@ public class BallPivotMechanicsOnTouch : MonoBehaviour {
 
 	void CreateLine(Vector3 LinePivot,Vector3 LineBall)
 	{
-		actualLine = (Instantiate(LinePrefab,GetComponent<Rigidbody2D>().position,Quaternion.identity) as GameObject);
-		actualLine.GetComponent<LineRenderer> ().SetPosition (0,LineBall );
-		actualLine.GetComponent<LineRenderer> ().SetPosition (1,LinePivot );
-
+		if (Time.timeScale != 0) {
+			actualLine = (Instantiate (LinePrefab, GetComponent<Rigidbody2D> ().position, Quaternion.identity) as GameObject);
+			actualLine.GetComponent<LineRenderer> ().SetPosition (0, LineBall);
+			actualLine.GetComponent<LineRenderer> ().SetPosition (1, LinePivot);
+		}
 		//EllipsePoint.GeComponent<Rigidbody2D>().position = GetComponent<Rigidbody2D>().position;
 	}
 

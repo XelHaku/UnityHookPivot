@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using StartApp;
 
 public class ScoreManager : MonoBehaviour {
 	public static int score;
@@ -16,6 +17,14 @@ public class ScoreManager : MonoBehaviour {
 		anim =HUDcanvas.GetComponent <Animator> (); 
 		text = GetComponent<Text> ();
 		score = 0;
+
+
+			#if UNITY_ANDROID
+			StartAppWrapper.init();
+			StartAppWrapper.loadAd();
+			#endif
+		
+
 	}
 	
 	// Update is called once per frame
@@ -23,7 +32,16 @@ public class ScoreManager : MonoBehaviour {
 		//text.text = "Score: " + score;
 		text.text = "Score: " + GameDataTracker.GameScore;
 		if(GameDataTracker.Lives <= 0)
-		{
+		{   //SHOW STARTAPP INTERSTIATIAL EVERY 2 RUNS
+			if(GameDataTracker.GameRuns%3 == 0 && GameDataTracker.AD_AlreadyShown == false){
+				//if true => Show ad
+				#if UNITY_ANDROID
+				StartAppWrapper.showAd();
+				StartAppWrapper.loadAd();
+				#endif
+				GameDataTracker.AD_AlreadyShown = true;
+							
+			}
 			//Report Score to leaderboard
 			ManageAchievements.ReportScoreToLeaderboard(GameDataTracker.GameScore);
 
