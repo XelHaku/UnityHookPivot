@@ -58,6 +58,6 @@ C:\Users\Juan\Documents\UnityProjects\UnityHookPivot\Hook and Woosh\Temp\bin\Deb
 C:\Users\Juan\Documents\UnityProjects\UnityHookPivot\Hook and Woosh\Temp\bin\Debug\UnityEditor.xml
 C:\Users\Juan\Documents\UnityProjects\UnityHookPivot\Hook and Woosh\Temp\bin\Debug\UnityEngine.UI.xml
 C:\Users\Juan\Documents\UnityProjects\UnityHookPivot\Hook and Woosh\Temp\bin\Debug\UnityEngine.Networking.xml
+C:\Users\Juan\Documents\UnityProjects\UnityHookPivot\Hook and Woosh\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache
 C:\Users\Juan\Documents\UnityProjects\UnityHookPivot\Hook and Woosh\obj\Debug\Assembly-CSharp.dll
 C:\Users\Juan\Documents\UnityProjects\UnityHookPivot\Hook and Woosh\obj\Debug\Assembly-CSharp.pdb
-C:\Users\Juan\Documents\UnityProjects\UnityHookPivot\Hook and Woosh\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache

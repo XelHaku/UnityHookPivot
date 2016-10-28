@@ -8,6 +8,8 @@ public class SpawnBall : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 	//Spawn Blueball
+		ManageAchievements.IncreaseSpawnedLevels();
+		ManageAchievements.CheckLevelReached (GameDataTracker.ReachedLevels);
 		GetComponent<SpriteRenderer>().enabled = true;
 	}
 	
@@ -23,6 +25,8 @@ public class SpawnBall : MonoBehaviour {
 		if (Time.realtimeSinceStartup >= 5.5) {
 			//Destroy (gameObject);
 			GetComponent<SpriteRenderer>().enabled = false;
+			GetComponentInParent<SpriteRenderer>().enabled = false;
+			GetComponentInChildren<SpriteRenderer>().enabled = false;
 		}
 	}
 }

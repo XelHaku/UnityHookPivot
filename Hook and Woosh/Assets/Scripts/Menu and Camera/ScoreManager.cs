@@ -24,6 +24,10 @@ public class ScoreManager : MonoBehaviour {
 		text.text = "Score: " + GameDataTracker.GameScore;
 		if(GameDataTracker.Lives <= 0)
 		{
+			//Report Score to leaderboard
+			ManageAchievements.ReportScoreToLeaderboard(GameDataTracker.GameScore);
+
+			//
 			GameObject BALL = GameObject.FindGameObjectWithTag ("Ball");
 			DestroyObject (BALL);
 			// ... tell the animator the game is over.
