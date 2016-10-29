@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Jewel : MonoBehaviour {
 	//public GameController gameController;
+	public GameObject thisParticleEffect;
 	public int scoreValue;
 	// Use this for initialization
 	void Start () {
@@ -31,6 +32,9 @@ public class Jewel : MonoBehaviour {
 			//PENDING ADD SCORE
 			GameDataTracker.GameScore +=scoreValue;
 			//gameController.AddScore (scoreValue);
+
+			Instantiate(thisParticleEffect,GetComponent<Transform>().position,Quaternion.identity );
+				
 			Destroy(gameObject); 
 		}
 	}

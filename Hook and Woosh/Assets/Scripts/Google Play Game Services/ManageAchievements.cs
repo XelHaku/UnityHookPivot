@@ -45,6 +45,7 @@ public class ManageAchievements : MonoBehaviour {
 	
 	// Update is called once per frame
 	public static	void IncreaseSpawnedLevels () {
+		#if UNITY_ANDROID && !UNITY_EDITOR
 	//Increase by +1 each time the player spawn a level
 		// increment achievement (achievement 100 Spawned Levels) by 1 steps
 		PlayGamesPlatform.Instance.IncrementAchievement(
@@ -63,12 +64,14 @@ public class ManageAchievements : MonoBehaviour {
 			"CgkI7q_V8fMbEAIQDQ", 1, (bool success) => {
 				// handle success or failure
 			});
+		#endif
 	}
 
 
 	public static void ReportScoreToLeaderboard(int Score){
 		// post score Score to leaderboard ID "CgkI7q_V8fMbEAIQAA" )
+		#if UNITY_ANDROID && !UNITY_EDITOR
 		Social.ReportScore(Score, "CgkI7q_V8fMbEAIQAA", (bool success) => {});
-	
+		#endif
 	}
 }

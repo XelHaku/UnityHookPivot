@@ -22,6 +22,9 @@ public class SingInGoogleGameServices : MonoBehaviour {
 
 		//PlayGamesPlatform.InitializeInstance(config);
 		// recommended for debugging:
+		#if UNITY_ANDROID
+
+
 		PlayGamesPlatform.DebugLogEnabled = true;
 		// Activate the Google Play Games platform
 		PlayGamesPlatform.Activate();
@@ -35,6 +38,8 @@ public class SingInGoogleGameServices : MonoBehaviour {
 		Social.ReportProgress("CgkI7q_V8fMbEAIQDA", 100.0f, (bool success) => {
 			// handle success or failure
 		});
+
+		#endif
 	}
 	
 

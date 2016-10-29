@@ -21,7 +21,7 @@ public class StartApp_Init : MonoBehaviour {
 		StartAppWrapper.showSplash(new StartAppWrapper.SplashConfig()
 			.setTheme(StartAppWrapper.SplashConfig.Theme.OCEAN)
 			.setAppName("Hook and Woosh")
-			.setLogo("XonderSquare360")
+			.setLogo("XonderSquare360.png")
 			.setOrientation(StartAppWrapper.SplashConfig.Orientation.AUTO)             
 		);
 

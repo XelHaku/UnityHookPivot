@@ -312,8 +312,13 @@ namespace StartApp {
 				type = 3;
 				break;
 			}
+		#if UNITY_ANDROID && !UNITY_EDITOR
 			AndroidJavaObject objType = new AndroidJavaObject("java.lang.Integer", type);
-			return objType;
+
+		return objType;
+		#else
+			return null;
+		#endif
 		}
 		
 		public static void addBanner() {
@@ -360,12 +365,15 @@ namespace StartApp {
 		}
 		
 		private static void initWrapper() {
+		#if UNITY_ANDROID && !UNITY_EDITOR
 			AndroidJavaObject jAppId = null;
 			AndroidJavaObject jAccId = null;
 			AndroidJavaObject jEnableReturnAds = null;
-			
+		
 			unityClass = new AndroidJavaClass("com.unity3d.player.UnityPlayer"); 
-			currentActivity = unityClass.GetStatic<AndroidJavaObject>("currentActivity");
+
+		currentActivity = unityClass.GetStatic<AndroidJavaObject>("currentActivity");
+
 			wrapper = new AndroidJavaObject("com.startapp.android.unity.InAppWrapper", currentActivity);
 			
 			if (!initUserData()) {
@@ -380,6 +388,8 @@ namespace StartApp {
 			} else {
 				wrapper.Call("init", jAppId, jEnableReturnAds);
 			}
+
+		#endif	
 		}
 		
 		private static bool initUserData() {

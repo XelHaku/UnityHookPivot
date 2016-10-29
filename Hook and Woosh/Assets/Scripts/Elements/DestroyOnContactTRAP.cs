@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class DestroyOnContactTRAP : MonoBehaviour {
-
+	public GameObject thisParticleEffect,burnParticleEffect;
 	// Use this for initialization
 	void Start () {
 	
@@ -20,6 +20,7 @@ public class DestroyOnContactTRAP : MonoBehaviour {
 		if (col.gameObject.tag == "Ball") {
 			//GameDataTracker.GameScore -= 50;
 			if (GetComponent<Transform> ().CompareTag ("SpikeSeeker")) {
+				Instantiate(thisParticleEffect,col.GetComponent<Transform>().position,Quaternion.identity );
 				GameDataTracker.Lives -= 1;
 				Destroy (gameObject);
 			} else if (GetComponent<Transform> ().CompareTag ("Blackhole")) {
@@ -27,6 +28,7 @@ public class DestroyOnContactTRAP : MonoBehaviour {
 			}
 		} else if (col.gameObject.tag == "SpikeSeeker" && GetComponent<Transform> ().CompareTag ("SpikeSeeker")) {
 			GameDataTracker.GameScore += 1;
+			Instantiate(thisParticleEffect,col.GetComponent<Transform>().position,Quaternion.identity );
 			Destroy (gameObject);
 		} else if (col.gameObject.tag == "BlueWall") {
 			Destroy (gameObject);
@@ -37,6 +39,7 @@ public class DestroyOnContactTRAP : MonoBehaviour {
 
 		if (col.gameObject.tag == "Ball") {
 			if (GetComponent<Transform> ().CompareTag ("RedWall")) {
+				Instantiate(burnParticleEffect,col.gameObject.transform.position,Quaternion.identity );
 				GameDataTracker.Lives -= 1;
 			}
 		}
