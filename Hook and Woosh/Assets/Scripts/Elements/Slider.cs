@@ -17,10 +17,10 @@ public class Slider : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D col) 
 	{
-		Debug.Log("Slider Trigger Activated");
+		//Debug.Log("Slider Trigger Activated");
 		if(col.gameObject.tag == "Slider")
 		{			//col.gameObject.SetActive(false);
-			Debug.Log("Slider Activated");
+			//Debug.Log("Slider Activated");
 			GetComponent<SliderJoint2D>().enabled = true;
 
 			//GetComponent<SliderJoint2D> ().connectedBody = col.GetComponent<Rigidbody2D> ();
@@ -56,7 +56,7 @@ public class Slider : MonoBehaviour {
 			GetComponent<SliderJoint2D> ().limits = limits; 
 
 			GetComponent<SliderJoint2D> ().angle = col.GetComponent<Rigidbody2D> ().rotation;
-			Debug.Log("Rotation =" + col.GetComponent<Rigidbody2D> ().rotation+ "Angle = " +angleRot + "Limits  =" + limits.max);
+			//Debug.Log("Rotation =" + col.GetComponent<Rigidbody2D> ().rotation+ "Angle = " +angleRot + "Limits  =" + limits.max);
 		}
 
 

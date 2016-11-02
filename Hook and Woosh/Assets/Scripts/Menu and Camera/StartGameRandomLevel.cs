@@ -5,15 +5,20 @@ using UnityEngine.SceneManagement;
 public class StartGameRandomLevel : MonoBehaviour {
 
 
-
-	public  void RandomLevel(){
-		int LevelInt = Random.Range(1,6);
+	public  void GoToRandomLevel(){
+		int LevelInt = Random.Range(1,7);
 		string LevelName = "Level_00" +LevelInt.ToString();
-		Debug.Log(LevelName);
-		//DELETE THIS LINE
-		GameDataTracker.Lives = 6;
-		//
 		SceneManager.LoadScene (LevelName, LoadSceneMode.Single);
-
 	}
+
+	public static void RandomLevel(){
+		int LevelInt = Random.Range(1,7);
+		string LevelName = "Level_00" +LevelInt.ToString();
+		SceneManager.LoadScene (LevelName, LoadSceneMode.Single);
+	}
+
+
+
+
+
 }

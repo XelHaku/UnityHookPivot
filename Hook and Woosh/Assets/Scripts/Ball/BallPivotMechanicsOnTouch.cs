@@ -87,7 +87,7 @@ public class BallPivotMechanicsOnTouch : MonoBehaviour {
 							BallState = "Hooked";
 							//actualPivot = closestPivot;
 							sprenderWhiteGlow.enabled = true;
-							Debug.Log("Hooked to Pivot");
+						//	Debug.Log("Hooked to Pivot");
 							GetComponent<DistanceJoint2D>().enabled = true;
 							//GetComponent<DistanceJoint2D>().connectedAnchor = closestPivot.GetComponent<Transform>().position;
 							GetComponent<DistanceJoint2D>().distance = Vector3.Distance(GetComponent<Transform>().position,actualPivot.GetComponent<Transform>().position);
@@ -108,7 +108,7 @@ public class BallPivotMechanicsOnTouch : MonoBehaviour {
 						GetComponent<DistanceJoint2D> ().enabled = false;
 						BallState = "Free";
 						sprenderWhiteGlow.enabled = false;
-						Debug.Log ("Free");
+					//	Debug.Log ("Free");
 					}
 				}
 			}
@@ -128,7 +128,7 @@ public class BallPivotMechanicsOnTouch : MonoBehaviour {
 				if(Vector3.Distance(GetComponent<Transform>().position,actualPivot.GetComponent<Transform>().position) <= hookRadius*actualPivot.GetComponent<Transform>().localScale.x){
 					BallState = "Hooked";
 					sprenderWhiteGlow.enabled = true;
-					Debug.Log("Hooked to Pivot");
+					//Debug.Log("Hooked to Pivot");
 					GetComponent<DistanceJoint2D>().enabled = true;
 
 					GetComponent<DistanceJoint2D>().connectedAnchor = actualPivot.GetComponent<Transform>().position;
@@ -141,20 +141,20 @@ public class BallPivotMechanicsOnTouch : MonoBehaviour {
 				GetComponent<DistanceJoint2D>().enabled = false;
 				BallState = "Free";
 				sprenderWhiteGlow.enabled = false;
-				Debug.Log("Free");
+			//	Debug.Log("Free");
 			}else if(BallState == "Sliding" ){
 				GetComponent<DistanceJoint2D>().enabled = false;
 				//sprenderWhiteGlow.enabled = false;
-				Debug.Log("Sliding");
+				//Debug.Log("Sliding");
 				if (activeSlider.GetComponent<Rigidbody2D> ().rotation == 90.0f) {
 					GetComponent<SliderJoint2D>().enabled = false;
 					BallState = "Free";
 					activeSlider.GetComponent<Collider2D> ().enabled = false;
 					StartCoroutine (DeactivateColliderDelay (activeSlider));
 					if (hit2.x <= GetComponent<Transform>().position.x ) {
-						PropulsionFromSlider ("LEFT"); Debug.Log("Accelerated LEFT  "+"MousePoint  "+hit2.x+"  Object Position"+GetComponent<Transform>().position.x);
+						PropulsionFromSlider ("LEFT");// Debug.Log("Accelerated LEFT  "+"MousePoint  "+hit2.x+"  Object Position"+GetComponent<Transform>().position.x);
 					}else if (hit2.x> GetComponent<Transform>().position.x) {
-						PropulsionFromSlider ("RIGHT"); Debug.Log("Accelerated RIGHT  "+"MousePoint  "+hit2.x+"  Object Position"+GetComponent<Transform>().position.x);
+						PropulsionFromSlider ("RIGHT");// Debug.Log("Accelerated RIGHT  "+"MousePoint  "+hit2.x+"  Object Position"+GetComponent<Transform>().position.x);
 					}
 				}
 				if (activeSlider.GetComponent<Rigidbody2D> ().rotation == 0.0f) {
@@ -163,9 +163,9 @@ public class BallPivotMechanicsOnTouch : MonoBehaviour {
 					activeSlider.GetComponent<Collider2D> ().enabled = false;
 					StartCoroutine (DeactivateColliderDelay (activeSlider));
 					if (hit2.y <= GetComponent<Transform>().position.y ) {
-						PropulsionFromSlider ("DOWN"); Debug.Log("Accelerated DOWN  "+"MousePoint  "+hit2.y+"  Object Position"+GetComponent<Transform>().position.y);
+						PropulsionFromSlider ("DOWN");// Debug.Log("Accelerated DOWN  "+"MousePoint  "+hit2.y+"  Object Position"+GetComponent<Transform>().position.y);
 					}else if (hit2.y> GetComponent<Transform>().position.y) {
-						PropulsionFromSlider ("UP"); Debug.Log("Accelerated RIGHT  "+"MousePoint  "+hit2.y+"  Object Position"+GetComponent<Transform>().position.y);
+						PropulsionFromSlider ("UP");// Debug.Log("Accelerated RIGHT  "+"MousePoint  "+hit2.y+"  Object Position"+GetComponent<Transform>().position.y);
 					} 
 				}
 				if (activeSlider.GetComponent<Rigidbody2D> ().rotation == 45.0f) {
@@ -174,9 +174,9 @@ public class BallPivotMechanicsOnTouch : MonoBehaviour {
 					activeSlider.GetComponent<Collider2D> ().enabled = false;
 					StartCoroutine (DeactivateColliderDelay (activeSlider));
 					if (hit2.x > GetComponent<Transform>().position.x ) {
-						PropulsionFromSlider ("DIAGONAL_DOWN"); Debug.Log("Accelerated DIAGONAL_DOWN  "+"MousePoint  "+hit2.y+"  Object Position"+GetComponent<Transform>().position.y);
+						PropulsionFromSlider ("DIAGONAL_DOWN"); //Debug.Log("Accelerated DIAGONAL_DOWN  "+"MousePoint  "+hit2.y+"  Object Position"+GetComponent<Transform>().position.y);
 					}else if (hit2.x<= GetComponent<Transform>().position.x) {
-						PropulsionFromSlider ("DIAGONAL_UP"); Debug.Log("Accelerated DIAGONAL_UP  "+"MousePoint  "+hit2.y+"  Object Position"+GetComponent<Transform>().position.y);
+						PropulsionFromSlider ("DIAGONAL_UP"); //Debug.Log("Accelerated DIAGONAL_UP  "+"MousePoint  "+hit2.y+"  Object Position"+GetComponent<Transform>().position.y);
 					}
 				}
 			}
@@ -189,7 +189,7 @@ public class BallPivotMechanicsOnTouch : MonoBehaviour {
 		{
 			//Vector3 wp = Camera.main.ScreenToWorldPoint (Input.GetTouch (0).position);
 			//Vector2 touchPos = new Vector2 (wp.x, wp.y);
-				Debug.Log ("Target Position: " + hit.collider.gameObject.transform.position);
+			//	Debug.Log ("Target Position: " + hit.collider.gameObject.transform.position);
 
 				GravityGlow.GetComponent<Rigidbody2D>().position = pivotHover.GetComponent<Rigidbody2D>().position;
 				GravityGlow.GetComponent<SpriteRenderer> ().enabled = true;
@@ -271,12 +271,12 @@ public class BallPivotMechanicsOnTouch : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D col) 
 	{
-		Debug.Log("Slider Trigger Activated");
+		//Debug.Log("Slider Trigger Activated");
 		if(col.gameObject.tag == "Slider")
 		{			//col.gameObject.SetActive(false);
 			sprenderWhiteGlow.enabled = false;
 			activeSlider = col.gameObject;
-			Debug.Log("Slider Activated");
+			//Debug.Log("Slider Activated");
 			GetComponent<SliderJoint2D>().enabled = true;
 
 			//GetComponent<SliderJoint2D> ().connectedBody = col.GetComponent<Rigidbody2D> ();
@@ -312,7 +312,7 @@ public class BallPivotMechanicsOnTouch : MonoBehaviour {
 			GetComponent<SliderJoint2D> ().limits = limits; 
 
 			GetComponent<SliderJoint2D> ().angle = col.GetComponent<Rigidbody2D> ().rotation;
-			Debug.Log("Rotation =" + col.GetComponent<Rigidbody2D> ().rotation+ "Angle = " +angleRot + "Limits  =" + limits.max);
+		//	Debug.Log("Rotation =" + col.GetComponent<Rigidbody2D> ().rotation+ "Angle = " +angleRot + "Limits  =" + limits.max);
 		}
 
 
@@ -333,7 +333,7 @@ public class BallPivotMechanicsOnTouch : MonoBehaviour {
 				int Sing = -1;
 				if (getSing.z <= 0) {
 					Sing = 1;
-					Debug.Log("Sing = -1");
+					//Debug.Log("Sing = -1");
 				}
 				
 		var velocityDireccion = Sing *50.0f * closestPivot.transform.localScale.x * Vector3.Normalize (Vector3.Cross ( new Vector3 (0, 0, 1),BminusP));
@@ -378,14 +378,14 @@ public class BallPivotMechanicsOnTouch : MonoBehaviour {
 	}
 
 	IEnumerator	DeactivateColliderDelay(GameObject objectColliderDelayed){
-		Debug.Log("Slider colider deacti");
+		//Debug.Log("Slider colider deacti");
 
 		yield return new WaitForSeconds (0.50f);
 		objectColliderDelayed.GetComponent<Collider2D> ().enabled = true;
 	}
 
 	IEnumerator	DeactivateGravityGlowDelay(){
-		Debug.Log("Gravity glow deactivation");
+		//Debug.Log("Gravity glow deactivation");
 
 		yield return new WaitForSeconds (3.0f);
 		GravityGlow.GetComponent<SpriteRenderer> ().enabled = false;

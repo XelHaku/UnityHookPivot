@@ -46,6 +46,8 @@ public class ScoreManager : MonoBehaviour {
 			ManageAchievements.ReportScoreToLeaderboard(GameDataTracker.GameScore);
 
 			//
+			GameObject ExitDoor = GameObject.FindGameObjectWithTag ("ExitDoor");
+			Destroy(ExitDoor); 
 			GameObject BALL = GameObject.FindGameObjectWithTag ("Ball");
 			DestroyObject (BALL);
 			// ... tell the animator the game is over.

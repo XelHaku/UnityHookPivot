@@ -45,7 +45,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\GoSceneName.cs" />
+     <Compile Include="Assets\GoToWebPage.cs" />
      <Compile Include="Assets\GooglePlayGames\BasicApi\Achievement.cs" />
      <Compile Include="Assets\GooglePlayGames\BasicApi\CommonStatusCodes.cs" />
      <Compile Include="Assets\GooglePlayGames\BasicApi\CommonTypes.cs" />
@@ -223,8 +223,7 @@
      <Compile Include="Assets\GooglePlayGames\Platforms\PlayGamesClientFactory.cs" />
      <Compile Include="Assets\GooglePlayGames\Platforms\TokenClient.cs" />
      <Compile Include="Assets\GooglePlayGames\PluginVersion.cs" />
-     <Compile Include="Assets\MakeHookedSound.cs" />
-     <Compile Include="Assets\PlayBallSounds.cs" />
+     <Compile Include="Assets\LevelGate.cs" />
      <Compile Include="Assets\Scripts\Ball\BallBlackhole.cs" />
      <Compile Include="Assets\Scripts\Ball\BallPivotMechanicsOnTouch.cs" />
      <Compile Include="Assets\Scripts\Ball\BallSpikeSeekerMechanics.cs" />
@@ -239,11 +238,13 @@
      <Compile Include="Assets\Scripts\Elements\SpawnBall.cs" />
      <Compile Include="Assets\Scripts\Elements\SpikeSeeker.cs" />
      <Compile Include="Assets\Scripts\Elements\YELLOW_wallbrickscript.cs" />
+     <Compile Include="Assets\Scripts\GoSceneName.cs" />
      <Compile Include="Assets\Scripts\Google Play Game Services\GMSR_ShowAchievments.cs" />
      <Compile Include="Assets\Scripts\Google Play Game Services\GMSR_ShowLeaderboard.cs" />
      <Compile Include="Assets\Scripts\Google Play Game Services\GPGSIds.cs" />
      <Compile Include="Assets\Scripts\Google Play Game Services\ManageAchievements.cs" />
      <Compile Include="Assets\Scripts\Google Play Game Services\SingInGoogleGameServices.cs" />
+     <Compile Include="Assets\Scripts\MakeHookedSound.cs" />
      <Compile Include="Assets\Scripts\Menu and Camera\CameraScroller.cs" />
      <Compile Include="Assets\Scripts\Menu and Camera\GameDataTracker.cs" />
      <Compile Include="Assets\Scripts\Menu and Camera\GoRandomLevel.cs" />
@@ -257,11 +258,17 @@
      <Compile Include="Assets\Scripts\Menu and Camera\ShowPauseCanvas.cs" />
      <Compile Include="Assets\Scripts\Menu and Camera\ShowScoreText.cs" />
      <Compile Include="Assets\Scripts\Menu and Camera\StartGameRandomLevel.cs" />
+     <Compile Include="Assets\Scripts\MuteAll.cs" />
+     <Compile Include="Assets\Scripts\PauseBackgroundMusic.cs" />
+     <Compile Include="Assets\Scripts\PlayBallSounds.cs" />
      <Compile Include="Assets\Scripts\RotateSpeed.cs" />
      <Compile Include="Assets\Scripts\StartAppBackPlugin.cs" />
      <Compile Include="Assets\Scripts\StartAppWrapper.cs" />
      <Compile Include="Assets\Scripts\StartApp_Init.cs" />
+     <Compile Include="Assets\Scripts\VideoRewardAd.cs" />
      <Compile Include="Assets\Scripts\WaveMovement.cs" />
+     <Compile Include="Assets\TriggerTextTutorial.cs" />
+     <Compile Include="Assets\TutorialTextManagement.cs" />
      <None Include="Assets\GooglePlayGames\Editor\template-GameInfo.txt" />
      <None Include="Assets\GooglePlayGames\Editor\template-AndroidManifest.txt" />
      <None Include="Assets\Plugins\Android\MainLibProj\AndroidManifest.xml" />

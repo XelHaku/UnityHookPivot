@@ -3,7 +3,7 @@ using System.Collections;
 using GooglePlayGames;
 using GooglePlayGames.BasicApi;
 using UnityEngine.SocialPlatforms;
-
+using StartApp;
 public class SingInGoogleGameServices : MonoBehaviour {
 
 	// Use this for initialization
@@ -24,7 +24,8 @@ public class SingInGoogleGameServices : MonoBehaviour {
 		// recommended for debugging:
 		#if UNITY_ANDROID
 
-
+		StartAppWrapper.init();
+		StartAppWrapper.loadAd();
 		PlayGamesPlatform.DebugLogEnabled = true;
 		// Activate the Google Play Games platform
 		PlayGamesPlatform.Activate();

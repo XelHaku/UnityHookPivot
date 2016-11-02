@@ -24,6 +24,7 @@ C:\Users\Juan\Documents\UnityProjects\UnityHookPivot\Hook and Woosh\Temp\bin\Deb
 C:\Users\Juan\Documents\UnityProjects\UnityHookPivot\Hook and Woosh\Temp\bin\Debug\Mono.Cecil.Mdb.dll
 C:\Users\Juan\Documents\UnityProjects\UnityHookPivot\Hook and Woosh\Temp\bin\Debug\Unity.CecilTools.dll
 C:\Users\Juan\Documents\UnityProjects\UnityHookPivot\Hook and Woosh\Temp\bin\Debug\Mono.Cecil.Pdb.dll
+C:\Users\Juan\Documents\UnityProjects\UnityHookPivot\Hook and Woosh\Temp\bin\Debug\Assembly-CSharp-firstpass.pdb
 C:\Users\Juan\Documents\UnityProjects\UnityHookPivot\Hook and Woosh\Temp\bin\Debug\Assembly-CSharp.pdb
 C:\Users\Juan\Documents\UnityProjects\UnityHookPivot\Hook and Woosh\Temp\bin\Debug\UnityEngine.xml
 C:\Users\Juan\Documents\UnityProjects\UnityHookPivot\Hook and Woosh\Temp\bin\Debug\UnityEditor.xml
@@ -38,4 +39,3 @@ C:\Users\Juan\Documents\UnityProjects\UnityHookPivot\Hook and Woosh\Temp\bin\Deb
 C:\Users\Juan\Documents\UnityProjects\UnityHookPivot\Hook and Woosh\obj\Debug\Assembly-CSharp-Editor.csprojResolveAssemblyReference.cache
 C:\Users\Juan\Documents\UnityProjects\UnityHookPivot\Hook and Woosh\obj\Debug\Assembly-CSharp-Editor.dll
 C:\Users\Juan\Documents\UnityProjects\UnityHookPivot\Hook and Woosh\obj\Debug\Assembly-CSharp-Editor.pdb
-C:\Users\Juan\Documents\UnityProjects\UnityHookPivot\Hook and Woosh\Temp\bin\Debug\Assembly-CSharp-firstpass.pdb

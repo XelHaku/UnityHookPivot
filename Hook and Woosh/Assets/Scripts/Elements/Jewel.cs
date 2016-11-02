@@ -4,7 +4,7 @@ using System.Collections;
 public class Jewel : MonoBehaviour {
 	//public GameController gameController;
 	public GameObject thisParticleEffect;
-	public int scoreValue;
+	int scoreValue = 10;
 	// Use this for initialization
 	void Start () {
 		//scoreValue = 10;
@@ -30,12 +30,22 @@ public class Jewel : MonoBehaviour {
 
 		if (col.gameObject.tag == "Ball") {
 			//PENDING ADD SCORE
-			GameDataTracker.GameScore +=scoreValue;
+			GameDataTracker.GameScore +=(int)(scoreValue*(0.9f+GameDataTracker.ReachedLevels*0.1));
 			//gameController.AddScore (scoreValue);
 
 			Instantiate(thisParticleEffect,GetComponent<Transform>().position,Quaternion.identity );
-				
+			//GameObject [] RemainingJewels = GameObject.FindGameObjectsWithTag ("Jewel");
+			Debug.Log ("hey  "+GameObject.FindGameObjectsWithTag ("Jewel").Length);
+			if (GameObject.FindGameObjectsWithTag ("Jewel").Length == 1) {
+				GameObject ExitDoor = GameObject.FindGameObjectWithTag ("ExitDoor");
+				ExitDoor.GetComponent<SpriteRenderer> ().color = new Color (0.32f,0.945f, 0.375f);
+				//ExitDoor.GetComponent<SpriteRenderer> ().color = new Color (82,242,96);
+			
+			}
 			Destroy(gameObject); 
+
+
+			
 		}
 	}
 
