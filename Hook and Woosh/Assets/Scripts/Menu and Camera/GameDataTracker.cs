@@ -7,6 +7,7 @@ public class GameDataTracker : MonoBehaviour {
 	public static int ReachedLevels=1;
 	public static int GameRuns=1;
 	public static bool AD_AlreadyShown;
+	public static bool AD_Reward=false;
 	void start(){
 		Reset ();
 		DontDestroyOnLoad (gameObject);

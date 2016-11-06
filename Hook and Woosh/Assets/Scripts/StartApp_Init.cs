@@ -10,13 +10,9 @@ public class StartApp_Init : MonoBehaviour {
 		#if UNITY_ANDROID
 		StartAppWrapper.init();
 		#endif
-
-		StartCoroutine (GoToMainMenu());
 	}
 
 	void OnGUI () {
-
-
 		#if UNITY_ANDROID
 		StartAppWrapper.showSplash(new StartAppWrapper.SplashConfig()
 			.setTheme(StartAppWrapper.SplashConfig.Theme.OCEAN)
@@ -26,16 +22,12 @@ public class StartApp_Init : MonoBehaviour {
 		);
 
 		StartAppWrapper.showSplash();
+
+		StartAppWrapper.init();
+		StartAppWrapper.loadAd();
+
+
 		#endif
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 
-	IEnumerator GoToMainMenu(){
-		yield return new WaitForSeconds (1.5f);
-		SceneManager.LoadScene ("MainMenu", LoadSceneMode.Single);
-	}
 }

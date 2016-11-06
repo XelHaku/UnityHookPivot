@@ -7,6 +7,7 @@ public class PauseBackgroundMusic : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		GameObject BackgroundMusic = GameObject.FindGameObjectWithTag ("BackgroundMusic");
+		if(BackgroundMusic != null){
 		if (BackgroundMusic.GetComponent<AudioSource> ().isPlaying) {
 			MusicONButton.GetComponent<Image> ().enabled = true;
 			MusicOFFButton.GetComponent<Image> ().enabled = false;
@@ -14,6 +15,7 @@ public class PauseBackgroundMusic : MonoBehaviour {
 			MusicONButton.GetComponent<Image> ().enabled = false;
 			MusicOFFButton.GetComponent<Image> ().enabled = true;
 		}
+	}
 		DontDestroyOnLoad (gameObject);
 	}
 	

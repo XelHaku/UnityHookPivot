@@ -15,7 +15,7 @@ namespace StartApp {
 		private static AndroidJavaObject currentActivity;
 		private static AndroidJavaObject wrapper;
 		
-		#if (!(UNITY_2_6 || UNITY_2_6_1 || UNITY_3_0 || UNITY_3_0_0 || UNITY_3_1 || UNITY_3_2 || UNITY_3_3 || UNITY_3_4 || UNITY_3_5 || UNITY_4_0 || UNITY_4_0_1 || UNITY_4_1))
+		#if (!(UNITY_2_6 || UNITY_2_6_1 || UNITY_3_0 || UNITY_3_0_0 || UNITY_3_1 || UNITY_3_2 || UNITY_3_3 || UNITY_3_4 || UNITY_3_5 || UNITY_4_0 || UNITY_4_0_1 || UNITY_4_1 ))
 		// Unity 4.2 or newer
 		public interface AdEventListener {
 			void onReceiveAd();
@@ -147,6 +147,7 @@ namespace StartApp {
 			
 			void adDisplayed(AndroidJavaObject ad) {
 				if (listener != null){
+					
 					listener.adDisplayed();
 				}
 			}
@@ -180,15 +181,17 @@ namespace StartApp {
 				if (!clicked) {
 					init();
 					Application.Quit();
+
 				}
 			}
 			
 			void adDisplayed(AndroidJavaObject ad) {
 				
-			}
+				}
 			
 			void adClicked(AndroidJavaObject ad) {
 				clicked = true;
+
 			}
 			
 			void adNotDisplayed(AndroidJavaObject ad) {

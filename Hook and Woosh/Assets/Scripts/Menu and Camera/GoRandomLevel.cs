@@ -6,12 +6,23 @@ public class GoRandomLevel : MonoBehaviour {
 	
 
 	public static void RandomLevel(){
-		int LevelInt = Random.Range(1,7);
-		string LevelName = "Level_00" +LevelInt.ToString();
-		//string LevelName = "Level_001";
-		//Debug.Log(LevelName);
-
+		int LevelInt;
+		string LevelName;
+		bool FlagRigthLevel=true;
+		do{
+		LevelInt = Random.Range(GameDataTracker.ReachedLevels,4+GameDataTracker.ReachedLevels);
+		LevelName = "Level_" +LevelInt.ToString();
+			if (SceneManager.GetActiveScene ().name != LevelName || LevelInt<=14 ) {
+				FlagRigthLevel =false;
+			}
+		}while(FlagRigthLevel);
 		SceneManager.LoadScene (LevelName, LoadSceneMode.Single);
 
+//		try{
+//		SceneManager.LoadScene (LevelName, LoadSceneMode.Single);
+//		}catch(UnityException ex){
+//			Debug.Log (ex);
+//			RandomLevel ();
+//		}
 	}
 }

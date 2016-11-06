@@ -1,16 +1,16 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Google Play Game Services\GMSR_ShowLeaderboard.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Menu and Camera\GoRandomLevel.cs">
     <Files>
-      <File FileName="Assets\Scripts\Ball\BallPivotMechanicsOnTouch.cs" Line="1" Column="1" />
-      <File FileName="Assets\MakeHookedSound.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Elements\Jewel.cs" Line="1" Column="1" />
-      <File FileName="Assets\Standard Assets\ParticleSystems\Scripts\ExplosionPhysicsForce.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Elements\DestroyOnContactTRAP.cs" Line="42" Column="69" />
-      <File FileName="Assets\Scripts\Menu and Camera\StartGameRandomLevel.cs" Line="8" Column="36" />
-      <File FileName="Assets\VideoRewardAd.cs" Line="29" Column="39" />
-      <File FileName="Assets\Scripts\StartAppWrapper.cs" Line="302" Column="8" />
-      <File FileName="Assets\Scripts\Google Play Game Services\GMSR_ShowLeaderboard.cs" Line="18" Column="1" />
+      <File FileName="Assets\TurnOFFAdReward.cs" Line="20" Column="48" />
+      <File FileName="Assets\Scripts\Menu and Camera\StartGameRandomLevel.cs" Line="22" Column="29" />
+      <File FileName="Assets\Scripts\Menu and Camera\GoRandomLevel.cs" Line="15" Column="70" />
+      <File FileName="Assets\Scripts\Menu and Camera\ScrollerCommand.cs" Line="10" Column="17" />
+      <File FileName="Assets\Scripts\Ball\CameraShake.cs" Line="77" Column="78" />
+      <File FileName="Assets\TutorialTextManagement.cs" Line="29" Column="12" />
+      <File FileName="Assets\TriggerTextTutorial.cs" Line="15" Column="4" />
+      <File FileName="Assets\Scripts\Menu and Camera\ScoreManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Elements\ExitDoorChangeLevelScene.cs" Line="32" Column="18" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

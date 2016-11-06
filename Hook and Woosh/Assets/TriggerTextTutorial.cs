@@ -12,7 +12,7 @@ public class TriggerTextTutorial : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D col)
 	{Debug.Log ("Collider");
 		if (col.gameObject.tag == "Ball") {
-			Debug.Log ("TEXT 3");
+			
 			Text.GetComponent<Text> ().enabled = true;
 			StartCoroutine (DissapearText (10));
 		}

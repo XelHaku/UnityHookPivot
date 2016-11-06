@@ -30,12 +30,13 @@ public class Jewel : MonoBehaviour {
 
 		if (col.gameObject.tag == "Ball") {
 			//PENDING ADD SCORE
-			GameDataTracker.GameScore +=(int)(scoreValue*(0.9f+GameDataTracker.ReachedLevels*0.1));
+			GameDataTracker.GameScore +=((int)(scoreValue+GameDataTracker.ReachedLevels-1));
+			//Debug.Log( (int)Mathf.RoundToInt(0.9f+GameDataTracker.ReachedLevels*0.1,0));
 			//gameController.AddScore (scoreValue);
 
 			Instantiate(thisParticleEffect,GetComponent<Transform>().position,Quaternion.identity );
 			//GameObject [] RemainingJewels = GameObject.FindGameObjectsWithTag ("Jewel");
-			Debug.Log ("hey  "+GameObject.FindGameObjectsWithTag ("Jewel").Length);
+			//Debug.Log ("hey  "+GameObject.FindGameObjectsWithTag ("Jewel").Length);
 			if (GameObject.FindGameObjectsWithTag ("Jewel").Length == 1) {
 				GameObject ExitDoor = GameObject.FindGameObjectWithTag ("ExitDoor");
 				ExitDoor.GetComponent<SpriteRenderer> ().color = new Color (0.32f,0.945f, 0.375f);

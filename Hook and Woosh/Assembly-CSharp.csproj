@@ -228,6 +228,7 @@
      <Compile Include="Assets\Scripts\Ball\BallPivotMechanicsOnTouch.cs" />
      <Compile Include="Assets\Scripts\Ball\BallSpikeSeekerMechanics.cs" />
      <Compile Include="Assets\Scripts\Ball\BlueBall.cs" />
+     <Compile Include="Assets\Scripts\Ball\CameraShake.cs" />
      <Compile Include="Assets\Scripts\DontdestroyOnLoad.cs" />
      <Compile Include="Assets\Scripts\Elements\DestroyOnContactTRAP.cs" />
      <Compile Include="Assets\Scripts\Elements\ExitDoorChangeLevelScene.cs" />
@@ -268,7 +269,9 @@
      <Compile Include="Assets\Scripts\VideoRewardAd.cs" />
      <Compile Include="Assets\Scripts\WaveMovement.cs" />
      <Compile Include="Assets\TriggerTextTutorial.cs" />
+     <Compile Include="Assets\TurnOFFAdReward.cs" />
      <Compile Include="Assets\TutorialTextManagement.cs" />
+     <Compile Include="Assets\WaveMovementTEST.cs" />
      <None Include="Assets\GooglePlayGames\Editor\template-GameInfo.txt" />
      <None Include="Assets\GooglePlayGames\Editor\template-AndroidManifest.txt" />
      <None Include="Assets\Plugins\Android\MainLibProj\AndroidManifest.xml" />

@@ -22,7 +22,7 @@ public class WaveMovement : MonoBehaviour {
 		if (Yratio < 0) {Ypositive = -1;
 		}
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		if (Xratio == 0) {
@@ -31,20 +31,25 @@ public class WaveMovement : MonoBehaviour {
 		if (Yratio == 0) {
 			Ypositive = 0;
 		}
-		Debug.Log (Mathf.Sign(Xratio));
-		GetComponent<Rigidbody2D> ().velocity =new Vector2(Speed * Xpositive,Speed * Ypositive);
+		//		Debug.Log (Mathf.Sign(Xratio));
+		//GetComponent<Rigidbody2D> ().velocity =new Vector2(Speed * Xpositive,Speed * Ypositive);
+		GetComponent<Rigidbody2D> ().AddForce(new Vector2(Speed * Xpositive,Speed * Ypositive));
 
 		if (GetComponent<Rigidbody2D> ().position.x > initPos.x + ScreenHeight *Mathf.Abs( Xratio)) {
 			Xpositive = -1;
+			GetComponent<Rigidbody2D> ().velocity =new Vector2(0,GetComponent<Rigidbody2D> ().velocity.y);
 		} else if (GetComponent<Rigidbody2D> ().position.x < initPos.x - ScreenHeight *Mathf.Abs( Xratio)) {
 			Xpositive = 1;
+			GetComponent<Rigidbody2D> ().velocity =new Vector2(0,GetComponent<Rigidbody2D> ().velocity.y);
 		}
 
 		if (GetComponent<Rigidbody2D> ().position.y > initPos.y + ScreenHeight *Mathf.Abs( Yratio)) {
 			Ypositive = -1;
+			GetComponent<Rigidbody2D> ().velocity =new Vector2(GetComponent<Rigidbody2D> ().velocity.x,0);
 		} else if (GetComponent<Rigidbody2D> ().position.y < initPos.y - ScreenHeight *Mathf.Abs( Yratio)) {
 			Ypositive = 1;
+			GetComponent<Rigidbody2D> ().velocity =new Vector2(GetComponent<Rigidbody2D> ().velocity.x,0);
 		}
-	
+
 	}
 }

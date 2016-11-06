@@ -12,6 +12,7 @@ public class TutorialTextManagement : MonoBehaviour {
 	public GameObject TextNo_07;
 	public GameObject TextNo_08;
 	public GameObject TextNo_09;
+	public GameObject TextNo_10;
 
 	static bool flag1 = true;
 	static bool flag2 = true;
@@ -25,6 +26,7 @@ public class TutorialTextManagement : MonoBehaviour {
 		TextNo_07.GetComponent<Text> ().enabled = false;
 		TextNo_08.GetComponent<Text> ().enabled = false;
 		TextNo_09.GetComponent<Text> ().enabled = false;
+		TextNo_10.GetComponent<Text> ().enabled = false;
 	}
 	
 	// Update is called once per frame

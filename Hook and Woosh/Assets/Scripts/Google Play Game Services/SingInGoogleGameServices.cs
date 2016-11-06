@@ -23,9 +23,6 @@ public class SingInGoogleGameServices : MonoBehaviour {
 		//PlayGamesPlatform.InitializeInstance(config);
 		// recommended for debugging:
 		#if UNITY_ANDROID
-
-		StartAppWrapper.init();
-		StartAppWrapper.loadAd();
 		PlayGamesPlatform.DebugLogEnabled = true;
 		// Activate the Google Play Games platform
 		PlayGamesPlatform.Activate();
@@ -33,6 +30,11 @@ public class SingInGoogleGameServices : MonoBehaviour {
 
 		Social.localUser.Authenticate ((bool success) => {
 		});
+
+
+		StartAppWrapper.init();
+		StartAppWrapper.loadAd();
+
 
 
 		// unlock achievement Welcome to Hook and Dash! (achievement ID "Cfjewijawiu_QA")

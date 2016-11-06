@@ -6,14 +6,20 @@ public class StartGameRandomLevel : MonoBehaviour {
 
 
 	public  void GoToRandomLevel(){
-		int LevelInt = Random.Range(1,7);
-		string LevelName = "Level_00" +LevelInt.ToString();
+		GameDataTracker.Lives =3;
+		if (GameDataTracker.AD_Reward) {
+			GameDataTracker.Lives =6;
+			GameDataTracker.AD_Reward=false;
+		}
+		int LevelInt = Random.Range(1,5);
+		string LevelName = "Level_" +LevelInt.ToString();
 		SceneManager.LoadScene (LevelName, LoadSceneMode.Single);
 	}
 
 	public static void RandomLevel(){
-		int LevelInt = Random.Range(1,7);
-		string LevelName = "Level_00" +LevelInt.ToString();
+		GameDataTracker.Lives = 3;
+		int LevelInt = Random.Range(1,5);
+		string LevelName = "Level_" +LevelInt.ToString();
 		SceneManager.LoadScene (LevelName, LoadSceneMode.Single);
 	}
 
