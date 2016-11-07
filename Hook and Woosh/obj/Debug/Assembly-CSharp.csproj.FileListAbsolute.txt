@@ -62,3 +62,4 @@ C:\Users\Juan\Documents\UnityProjects\UnityHookPivot\Hook and Woosh\Temp\bin\Deb
 C:\Users\Juan\Documents\UnityProjects\UnityHookPivot\Hook and Woosh\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache
 C:\Users\Juan\Documents\UnityProjects\UnityHookPivot\Hook and Woosh\obj\Debug\Assembly-CSharp.dll
 C:\Users\Juan\Documents\UnityProjects\UnityHookPivot\Hook and Woosh\obj\Debug\Assembly-CSharp.pdb
+C:\Users\tamez_000\Documents\UnityProjects\UnityHookPivot\Hook and Woosh\Temp\bin\Debug\Assembly-CSharp-firstpass.pdb

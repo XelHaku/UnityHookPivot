@@ -1,16 +1,16 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Menu and Camera\GoRandomLevel.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Plugins\Android\AndroidManifest 1.xml">
     <Files>
-      <File FileName="Assets\TurnOFFAdReward.cs" Line="20" Column="48" />
-      <File FileName="Assets\Scripts\Menu and Camera\StartGameRandomLevel.cs" Line="22" Column="29" />
-      <File FileName="Assets\Scripts\Menu and Camera\GoRandomLevel.cs" Line="15" Column="70" />
-      <File FileName="Assets\Scripts\Menu and Camera\ScrollerCommand.cs" Line="10" Column="17" />
-      <File FileName="Assets\Scripts\Ball\CameraShake.cs" Line="77" Column="78" />
-      <File FileName="Assets\TutorialTextManagement.cs" Line="29" Column="12" />
-      <File FileName="Assets\TriggerTextTutorial.cs" Line="15" Column="4" />
-      <File FileName="Assets\Scripts\Menu and Camera\ScoreManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Elements\ExitDoorChangeLevelScene.cs" Line="32" Column="18" />
+      <File FileName="Assets\Scripts\StartApp_Init.cs" Line="28" Column="65" />
+      <File FileName="Assets\Scripts\Google Play Game Services\SingInGoogleGameServices.cs" Line="50" Column="40" />
+      <File FileName="Assets\Scripts\VideoRewardAd.cs" Line="10" Column="67" />
+      <File FileName="Assets\Scripts\StartAppWrapper.cs" Line="16" Column="36" />
+      <File FileName="Assets\Scripts\Ball\CameraShake.cs" Line="26" Column="4" />
+      <File FileName="Assets\Scripts\PlayBallSounds.cs" Line="9" Column="4" />
+      <File FileName="Assets\Scripts\Elements\SpawnBall.cs" Line="21" Column="13" />
+      <File FileName="Assets\Plugins\Android\AndroidManifest 1.xml" Line="18" Column="78" />
+      <File FileName="Assets\Plugins\Android\AndroidManifest.xml" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

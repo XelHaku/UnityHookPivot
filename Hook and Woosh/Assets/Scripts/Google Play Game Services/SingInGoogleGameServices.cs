@@ -32,8 +32,8 @@ public class SingInGoogleGameServices : MonoBehaviour {
 		});
 
 
-		StartAppWrapper.init();
-		StartAppWrapper.loadAd();
+	//	StartAppWrapper.init();
+		//StartAppWrapper.loadAd();
 
 
 
@@ -43,6 +43,13 @@ public class SingInGoogleGameServices : MonoBehaviour {
 		});
 
 		#endif
+	}
+
+
+	void Update(){
+		if (Input.GetKeyDown( KeyCode.Escape)) {
+			Application.Quit ();
+		}
 	}
 	
 

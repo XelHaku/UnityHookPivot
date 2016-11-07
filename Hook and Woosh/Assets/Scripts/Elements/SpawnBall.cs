@@ -11,6 +11,17 @@ public class SpawnBall : MonoBehaviour {
 		ManageAchievements.IncreaseSpawnedLevels();
 		ManageAchievements.CheckLevelReached (GameDataTracker.ReachedLevels);
 		GetComponent<SpriteRenderer>().enabled = true;
+
+
+		GameObject Camera = GameObject.FindGameObjectWithTag ("MainCamera");
+		
+
+		Rigidbody2D elementRigid = Camera.GetComponent<Rigidbody2D> ();
+		//elementRigid.velocity = new Vector2 (ScrollerSpeed,0.0f);
+		GameObject Entrance = GameObject.FindGameObjectWithTag ("EntranceDoor");
+		if (Entrance != null) {
+			elementRigid.position = new Vector3 (Entrance.GetComponent<Rigidbody2D> ().position.x, 0.0f,-10f);
+		}
 	}
 	
 	// Update is called once per frame

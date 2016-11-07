@@ -14,22 +14,29 @@ public class CameraShake : MonoBehaviour {
 
 	GameObject BallPlayer,Entrance;
 	Rigidbody2D elementRigid; 
-	void Start () {
+
+	void Awake(){
+	
 		Camera = GameObject.FindGameObjectWithTag ("MainCamera");
 		omega = 80;
 		K = 2.0f;
 
 		elementRigid = Camera.GetComponent<Rigidbody2D> ();
 		//elementRigid.velocity = new Vector2 (ScrollerSpeed,0.0f);
-		Entrance = GameObject.FindGameObjectWithTag ("EntranceDoor");
+	//	Entrance = GameObject.FindGameObjectWithTag ("EntranceDoor");
 		if (Entrance != null) {
-			elementRigid.position = new Vector2 (Entrance.GetComponent<Rigidbody2D> ().position.x, 0.0f);
-		}
+		//	elementRigid.position = new Vector3 (Entrance.GetComponent<Rigidbody2D> ().position.x, 0.0f,-10f);
+					}
+		//BallPlayer = GetComponent<GameObject> ();
+	}
+
+	void Start () {
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
-				
+		
 
 			if(BallPivotMechanicsOnTouch.BallState != "Hooked"){
 			PiCam =GameObject.FindGameObjectWithTag("Ball").GetComponent<Transform> ().  position;
@@ -50,15 +57,15 @@ public class CameraShake : MonoBehaviour {
 			//
 		} else {
 			TimeExponential = 0;
-			if (BallPlayer != null) {
-				if (BallPivotMechanicsOnTouch.BallState != "Hooked") {
-					//elementRigid.position = new Vector2 (BallPlayer.GetComponent<Rigidbody2D> ().position.x, 0.0f);
-					//elementRigid.MovePosition (new Vector2 (BallPlayer.GetComponent<Rigidbody2D> ().position.x, 0.0f));
-					elementRigid.position = Vector3.SmoothDamp (elementRigid.position,new Vector3(GetComponent<Rigidbody2D> ().position.x, 0.0f), ref refVelocity,0.3f);
-				} else { elementRigid.position = Vector3.SmoothDamp (elementRigid.position,new Vector2(BallPivotMechanicsOnTouch.actualPivot.GetComponent<Rigidbody2D> ().position.x, 0.0f), ref refVelocity,1.0f);}
-			} else {
-				//BallPlayer = GameObject.FindGameObjectWithTag ("Ball");
-			}
+//			if (BallPlayer != null) {
+//				if (BallPivotMechanicsOnTouch.BallState != "Hooked") {
+//					//elementRigid.position = new Vector2 (BallPlayer.GetComponent<Rigidbody2D> ().position.x, 0.0f);
+//					//elementRigid.MovePosition (new Vector2 (BallPlayer.GetComponent<Rigidbody2D> ().position.x, 0.0f));
+//					elementRigid.position = Vector3.SmoothDamp (elementRigid.position,new Vector3(GetComponent<Rigidbody2D> ().position.x, 0.0f), ref refVelocity,0.3f);
+//				} else { elementRigid.position = Vector3.SmoothDamp (elementRigid.position,new Vector2(BallPivotMechanicsOnTouch.actualPivot.GetComponent<Rigidbody2D> ().position.x, 0.0f), ref refVelocity,1.0f);}
+//			} else {
+//				BallPlayer = GameObject.FindGameObjectWithTag ("Ball");
+//			}
 		}
 	
 	}

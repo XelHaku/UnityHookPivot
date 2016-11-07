@@ -7,7 +7,7 @@ public class VideoRewardAd : MonoBehaviour {
 		#if UNITY_ANDROID
 		var videoListener = new VideoListenerImplementation ();
 		StartAppWrapper.setVideoListener (videoListener);
-		StartAppWrapper.loadAd(StartAppWrapper.AdMode.REWARDED_VIDEO);
+//		StartAppWrapper.loadAd(StartAppWrapper.AdMode.REWARDED_VIDEO);
 		#endif
 	}
 	// Use this for initialization
