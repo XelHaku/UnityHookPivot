@@ -219,6 +219,8 @@ public class BallPivotMechanicsOnTouch : MonoBehaviour {
 		}
 	}
 
+
+//TODO Find closest Pivot from a List
 	GameObject GetNearestTaggedPivot(){
 		var nearestDistanceSqr = Mathf.Infinity;
 		var taggedGameObjects = GameObject.FindGameObjectsWithTag("Pivot"); 

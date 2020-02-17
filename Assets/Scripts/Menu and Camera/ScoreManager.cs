@@ -43,7 +43,7 @@ public class ScoreManager : MonoBehaviour {
 							
 			}
 			//Report Score to leaderboard
-			ManageAchievements.ReportScoreToLeaderboard(GameDataTracker.GameScore);
+		
 
 			//
 			GameObject ExitDoor = GameObject.FindGameObjectWithTag ("ExitDoor");

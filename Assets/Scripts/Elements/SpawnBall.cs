@@ -8,8 +8,7 @@ public class SpawnBall : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 	//Spawn Blueball
-		ManageAchievements.IncreaseSpawnedLevels();
-		ManageAchievements.CheckLevelReached (GameDataTracker.ReachedLevels);
+		
 		GetComponent<SpriteRenderer>().enabled = true;
 
 
